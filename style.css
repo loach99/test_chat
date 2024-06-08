@@ -108,8 +108,6 @@
     background-color: #1E1F23;
 }
 
-.burger {}
-
 .chat_view_window {
     width: calc(100% - 20%);
     overflow-y: scroll;
@@ -284,7 +282,6 @@
 }
 
 .show-block {
-
     opacity: 1 !important;
 }
 

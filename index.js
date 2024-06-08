@@ -117,8 +117,7 @@ messageForm.addEventListener('submit', (e) => {
     document.querySelector('.form_textarea').value = '';
 })
 
-const burger = document.querySelector('.burger');
-burger.addEventListener('click', () => {
+document.querySelector('.burger').addEventListener('click', () => {
     document.querySelector('.chat_user_list').classList.add('active')
 })
 document.querySelector('.onBack-img').addEventListener('click', () => {
