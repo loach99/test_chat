@@ -122,7 +122,7 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.burger').addEventListener('click', () => {
         document.querySelector('.chat_user_list').classList.add('active')
     })
-    document.querySelector('.onBack-img').addEventListener('click', () => {
+    document.querySelector('.user_list-onBack').addEventListener('click', () => {
         document.querySelector('.chat_user_list').classList.remove('active')
     })
 
