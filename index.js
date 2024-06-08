@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             document.querySelector('.spin-wrapper').classList.add("hidden");
             resolve()
-        }, 2000)
+        }, 2)
     })
     const promise2 = new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -122,7 +122,7 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.burger').addEventListener('click', () => {
         document.querySelector('.chat_user_list').classList.add('active')
     })
-    document.querySelector('.user_list-onBack').addEventListener('click', () => {
+    document.querySelectorAll('.user_list-onBack')[1].addEventListener('click', () => {
         document.querySelector('.chat_user_list').classList.remove('active')
     })
 
