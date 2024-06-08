@@ -203,7 +203,7 @@
 
 .footer {
     min-height: 100px;
-    margin: 0 15px 15px;
+    margin: 0 15px 10px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
