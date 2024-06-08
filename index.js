@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             document.querySelector('.spin-wrapper').classList.add("hidden");
             resolve()
-        }, 2)
+        }, 2000)
     })
     const promise2 = new Promise((resolve, reject) => {
         setTimeout(() => {
