@@ -269,12 +269,15 @@
 
 @media (max-width: 962px) {
     .my_message {
-        margin: 0;
+        margin: 0 0 5px;
         background-color: #838383;
     }
 
     .message {
         width: 100%;
+    }
+    .other_message{
+        margin: 0 0 5px;
     }
 }
 
