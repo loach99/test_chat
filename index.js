@@ -102,7 +102,7 @@ window.addEventListener('DOMContentLoaded', () => {
         picture.style.position = "fixed";
         picture.style.left = picture_pos['x'] + "px";
         picture.style.top = picture_pos['y'] + "px";
-        picture.style.border = "5px solid grey";
+        // picture.style.border = "5px solid grey";
         picture.style.zIndex = 32767;
 
         let start_x = picture_pos['x'] + 0.5 * picture_pos['width'];
@@ -122,10 +122,10 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             document.querySelector('.img_user').appendChild(picture);
             picture.style.position = "static";
-            picture.style.border = "1px solid grey";
             picture.style.transform = 'none';
             picture.style.width = '50px';
             picture.style.height = '50px';
+            picture.firstElementChild.style.border = "3px solid grey";
             document.querySelector('.expert_img').style.width = '50px'
             document.querySelector('.expert_img').style.height = '50px'
         }, 1000)
@@ -156,6 +156,7 @@ window.addEventListener('DOMContentLoaded', () => {
             expertImg.classList.add('expert_img');
             expertImg.style.width = '50px'
             expertImg.style.height = '50px'
+            expertImg.style.border = "3px solid grey";
             // устанавлтваем атрибут из изображения полученного с бэка 
             expertImg.setAttribute('src', firstExpertImg.getAttribute('src'));
             imgUserDiv.appendChild(expertImg);
@@ -168,28 +169,50 @@ window.addEventListener('DOMContentLoaded', () => {
             document.querySelector('.chat_message-window').insertAdjacentElement('afterbegin', testBoxDiv);
         }
     }
+    // function delayedPush(value) {
+    //     let array = [];
+    //     let timer;
+      
+    //     function pushToArray(newValue) {
+    //       array.push(newValue);
+    //     }
+      
+    //     return function(newValue) {
+    //       clearTimeout(timer);
+    //       if (newValue !== undefined) {
+    //         pushToArray(newValue);
+    //         timer = setTimeout(function() {
+    //           console.log('Прошло 3 секунд, возвращаем массив строк:', array);
+    //           array = [];
+    //         }, 3000);
+    //       }
+    //       return array;
+    //     };
+    //   }
 
     messageForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        console.log(document.querySelector('.form_textarea').value)
-        if (document.querySelector('.form_textarea').value) {
-            console.log(123)
-            addMessage(document.querySelector('.form_textarea').value, 'my_message');
-            createLoadingText('.chat_message-window')
+
+        let inputValue = document.querySelector('.form_textarea').value;
+
+        if (inputValue) {
+            addMessage(inputValue, 'my_message');
+            createLoadingText('.chat_message-window');
+
             const promise = new Promise((resolve) => {
                 fetch(`https://jsonplaceholder.typicode.com/comments/${Math.floor(Math.random() * 500)}`)
                     .then(response => response.json())
                     .then(response => resolve(response))
             })
-                promise.then((data)=>{
-                    setTimeout(() => {
-                        addMessage(data.body.charAt(0).toUpperCase() + data.body.slice(1), 'other_message');
-                    }, 3000)
-                })
-           
-            document.querySelector('.form_textarea').value = '';
-        }
+            promise.then((data) => {
+                setTimeout(() => {
+                    addMessage(data.body.charAt(0).toUpperCase() + data.body.slice(1), 'other_message');
+                }, 3000)
+            })
 
+           
+        }
+        document.querySelector('.form_textarea').value = '';
     })
 
     document.querySelector('.burger').addEventListener('click', () => {
@@ -213,5 +236,7 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             document.querySelector('.loading-wave').classList.add('hidden')
         }, 2500)
+
+        // clearTimeout(waveTimeout);
     }
 });
