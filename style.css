@@ -254,6 +254,7 @@
 
 .my_message {
     margin-left: 50%;
+    margin-bottom: 30px;
 }
 
 .my_message:empty {
