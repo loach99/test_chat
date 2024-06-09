@@ -27,12 +27,9 @@ window.addEventListener('DOMContentLoaded', () => {
     })
     const promise2 = new Promise((resolve, reject) => {
         //здесь запрос на сервер
-        fetch('https://jsonplaceholder.typicode.com/photos/3')
+        fetch(`https://jsonplaceholder.typicode.com/photos/${Math.floor(Math.random()*1000)}`)
             .then(response => response.json())
             .then(response => resolve(response))
-        // setTimeout(() => {
-        //     resolve("Salam!")
-        // }, 2)
     })
     promise.then(() => {
         promise2
