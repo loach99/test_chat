@@ -19,15 +19,15 @@ window.addEventListener('DOMContentLoaded', () => {
         block.classList.add('show-block');
     }
 
-    const promise = new Promise((resolve, reject) => {
+    const promise = new Promise((resolve) => {
         setTimeout(() => {
             document.querySelector('.spin-wrapper').classList.add("hidden");
             resolve()
         }, 2000)
     })
-    const promise2 = new Promise((resolve, reject) => {
+    const promise2 = new Promise((resolve) => {
         //здесь запрос на сервер
-        fetch(`https://jsonplaceholder.typicode.com/photos/${Math.floor(Math.random()*1000)}`)
+        fetch(`https://jsonplaceholder.typicode.com/photos/${Math.floor(Math.random() * 1000)}`)
             .then(response => response.json())
             .then(response => resolve(response))
     })
@@ -38,7 +38,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 return data
             })
             .then((data) => {
-                animateTyping(data.title)
+                animateTyping(data.title.charAt(0).toUpperCase() + data.title.slice(1))
                 setTimeout(() => {
                     moveToMessage(expertBlock, chatImgUser)
                     moveToChatHeader(expertName, expertNamePlace)
@@ -176,9 +176,17 @@ window.addEventListener('DOMContentLoaded', () => {
             console.log(123)
             addMessage(document.querySelector('.form_textarea').value, 'my_message');
             createLoadingText('.chat_message-window')
-            setTimeout(() => {
-                addMessage("hello world!", 'other_message');
-            }, 3000)
+            const promise = new Promise((resolve) => {
+                fetch(`https://jsonplaceholder.typicode.com/comments/${Math.floor(Math.random() * 500)}`)
+                    .then(response => response.json())
+                    .then(response => resolve(response))
+            })
+                promise.then((data)=>{
+                    setTimeout(() => {
+                        addMessage(data.body.charAt(0).toUpperCase() + data.body.slice(1), 'other_message');
+                    }, 3000)
+                })
+           
             document.querySelector('.form_textarea').value = '';
         }
 
