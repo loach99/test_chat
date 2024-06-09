@@ -3,6 +3,13 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
 
 window.addEventListener('DOMContentLoaded', () => {
 
+    const expertName = document.querySelector(".expert_name");
+    const expertNamePlace = document.querySelector(".expert_name-place");
+    const expertBlock = document.querySelector("#expert_block");
+    const chatImgUser = document.querySelector(".img_user");
+    const otherMessage = document.querySelector(".other_message");
+    const messageForm = document.querySelector(".footer_form");
+
     function animateBlock(image) {
         let block = document.getElementById('expert_block');
         let img = document.createElement('img');
@@ -20,31 +27,28 @@ window.addEventListener('DOMContentLoaded', () => {
     })
     const promise2 = new Promise((resolve, reject) => {
         //здесь запрос на сервер
-        setTimeout(() => {
-            resolve("Salam!")
-        }, 2)
+        fetch('https://jsonplaceholder.typicode.com/photos/3')
+            .then(response => response.json())
+            .then(response => resolve(response))
+        // setTimeout(() => {
+        //     resolve("Salam!")
+        // }, 2)
     })
     promise.then(() => {
         promise2
             .then((data) => {
-                animateBlock('./img/5eXXf4mf6iE.jpg')
-                console.log(123)
+                animateBlock(data.url)
                 return data
             })
             .then((data) => {
-                animateTyping(data)
-                console.log(data)
+                animateTyping(data.title)
                 setTimeout(() => {
                     moveToMessage(expertBlock, chatImgUser)
                     moveToChatHeader(expertName, expertNamePlace)
                 }, 1000)
             })
     })
-    const expertName = document.querySelector(".expert_name");
-    const expertNamePlace = document.querySelector(".expert_name-place");
-    const expertBlock = document.querySelector("#expert_block");
-    const chatImgUser = document.querySelector(".img_user");
-    const otherMessage = document.querySelector(".other_message");
+
 
     function animateTyping(message) {
         const promise = new Promise((resolve, reject) => {
@@ -130,9 +134,6 @@ window.addEventListener('DOMContentLoaded', () => {
         }, 1000)
 
     }
-
-    const messageForm = document.querySelector(".footer_form");
-
     function addMessage(text, type) {
         let div = document.createElement('div');
         if (!type) {
@@ -159,7 +160,7 @@ window.addEventListener('DOMContentLoaded', () => {
             expertImg.style.width = '50px'
             expertImg.style.height = '50px'
             // устанавлтваем атрибут из изображения полученного с бэка 
-            expertImg.setAttribute('src',firstExpertImg.getAttribute('src'));
+            expertImg.setAttribute('src', firstExpertImg.getAttribute('src'));
             imgUserDiv.appendChild(expertImg);
 
             // Создаем второй дочерний div с классом "chat_typing"
@@ -173,8 +174,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     messageForm.addEventListener('submit', (e) => {
         e.preventDefault();
-       console.log(document.querySelector('.form_textarea').value)
-        if(document.querySelector('.form_textarea').value){
+        console.log(document.querySelector('.form_textarea').value)
+        if (document.querySelector('.form_textarea').value) {
             console.log(123)
             addMessage(document.querySelector('.form_textarea').value, 'my_message');
             createLoadingText('.chat_message-window')
@@ -183,7 +184,7 @@ window.addEventListener('DOMContentLoaded', () => {
             }, 3000)
             document.querySelector('.form_textarea').value = '';
         }
-       
+
     })
 
     document.querySelector('.burger').addEventListener('click', () => {

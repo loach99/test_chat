@@ -33,7 +33,7 @@
 }
 .form_textarea::placeholder{
     color: #ccc;
-    font-size: 16px;
+    font-size: 14px;
 }
 .scroll_bar::-webkit-resizer{
    display: none;
