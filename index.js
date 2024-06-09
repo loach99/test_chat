@@ -16,7 +16,7 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             document.querySelector('.spin-wrapper').classList.add("hidden");
             resolve()
-        }, 2)
+        }, 2000)
     })
     const promise2 = new Promise((resolve, reject) => {
         //здесь запрос на сервер
@@ -173,13 +173,17 @@ window.addEventListener('DOMContentLoaded', () => {
 
     messageForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        addMessage(document.querySelector('.form_textarea').value, 'my_message');
-
-        createLoadingText('.chat_message-window')
-        setTimeout(() => {
-            addMessage("hello world!", 'other_message');
-        }, 3000)
-        document.querySelector('.form_textarea').value = '';
+       console.log(document.querySelector('.form_textarea').value)
+        if(document.querySelector('.form_textarea').value){
+            console.log(123)
+            addMessage(document.querySelector('.form_textarea').value, 'my_message');
+            createLoadingText('.chat_message-window')
+            setTimeout(() => {
+                addMessage("hello world!", 'other_message');
+            }, 3000)
+            document.querySelector('.form_textarea').value = '';
+        }
+       
     })
 
     document.querySelector('.burger').addEventListener('click', () => {
