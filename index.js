@@ -23,7 +23,7 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             document.querySelector('.spin-wrapper').classList.add("hidden");
             resolve()
-        }, 2000)
+        }, 20)
     })
     const promise2 = new Promise((resolve) => {
         //здесь запрос на сервер
@@ -169,36 +169,39 @@ window.addEventListener('DOMContentLoaded', () => {
             document.querySelector('.chat_message-window').insertAdjacentElement('afterbegin', testBoxDiv);
         }
     }
-    // function delayedPush(value) {
-    //     let array = [];
-    //     let timer;
+    function delayedPush(value) {
+        let array = [];
+        let timer;
       
-    //     function pushToArray(newValue) {
-    //       array.push(newValue);
-    //     }
+        function pushToArray(newValue) {
+          array.push(newValue);
+        }
       
-    //     return function(newValue) {
-    //       clearTimeout(timer);
-    //       if (newValue !== undefined) {
-    //         pushToArray(newValue);
-    //         timer = setTimeout(function() {
-    //           console.log('Прошло 3 секунд, возвращаем массив строк:', array);
-    //           array = [];
-    //         }, 3000);
-    //       }
-    //       return array;
-    //     };
-    //   }
+        return function(newValue) {
+          clearTimeout(timer);
+          if (newValue !== undefined) {
+            pushToArray(newValue);
+            timer = setTimeout(function() {
+              console.log('Прошло 3 секунд, возвращаем массив строк:', array);
+              array = [];
+            }, 3000);
+          }
+          return array;
+        };
+      }
 
     messageForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
         let inputValue = document.querySelector('.form_textarea').value;
-
+        let arr = [];
+        arr.push(inputValue)
         if (inputValue) {
             addMessage(inputValue, 'my_message');
-            createLoadingText('.chat_message-window');
-
+            createLoadingText('.chat_message-window');        
+            // const qq = delayedPush();
+            // console.log(arr)
+            // qq(arr)
             const promise = new Promise((resolve) => {
                 fetch(`https://jsonplaceholder.typicode.com/comments/${Math.floor(Math.random() * 500)}`)
                     .then(response => response.json())
