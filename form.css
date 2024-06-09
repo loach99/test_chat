@@ -20,15 +20,19 @@
 .form_textarea{
     width: calc(100% - 80px);
     resize: vertical;
-    border: none;
     border-radius: 15px;
     padding: 15px;
-    outline:none;
+    outline: none;
     background-color: rgb(120, 120, 120);
-    color: #ffffff;
+    color: #ccc;
+    border: 3px solid transparent;
+    transition: border-color 0.2s; 
+}
+.form_textarea:focus{
+    border-color: rgba(78, 99, 201, 0.9);
 }
 .form_textarea::placeholder{
-    color: #ffffff;
+    color: #ccc;
     font-size: 16px;
 }
 .scroll_bar::-webkit-resizer{
