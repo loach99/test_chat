@@ -23,7 +23,7 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             document.querySelector('.spin-wrapper').classList.add("hidden");
             resolve()
-        }, 1000)
+        }, 500)
     })
     const promise2 = new Promise((resolve) => {
         //здесь запрос на сервер
@@ -45,7 +45,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 }, 1000)
             })
     })
-
 
     function animateTyping(message) {
         const promise = new Promise((resolve, reject) => {
@@ -169,48 +168,44 @@ window.addEventListener('DOMContentLoaded', () => {
             document.querySelector('.chat_message-window').insertAdjacentElement('afterbegin', testBoxDiv);
         }
     }
-    function delayedPush(value) {
-        let array = [];
-        let timer;
-      
-        function pushToArray(newValue) {
-          array.push(newValue);
-        }
-      
-        return function(newValue) {
-          clearTimeout(timer);
-          if (newValue !== undefined) {
-            pushToArray(newValue);
-            timer = setTimeout(function() {
-              console.log('Прошло 3 секунд, возвращаем массив строк:', array);
-              array = [];
-            }, 3000);
-          }
-          return array;
-        };
-      }
+    function debounce(fn, delay) {
+        let timeoutId;
+        let strings = [];
 
+        return function (...args) {
+            strings.push(...args);
+
+            clearTimeout(timeoutId);
+
+            timeoutId = setTimeout(() => {
+                fn(strings);
+                strings = [];
+            }, delay);
+        };
+    }
+    function fetchArray(strings) {
+        const promise = new Promise((resolve, reject) => {
+
+            fetch(`https://jsonplaceholder.typicode.com/comments/${Math.floor(Math.random() * 500)}`)
+                .then(response => response.json())
+                .then(response => resolve(response))
+
+        })
+        promise.then((data) => {
+            setTimeout(() => {
+                addMessage(data.body.charAt(0).toUpperCase() + data.body.slice(1), 'other_message');
+            }, 0)
+        })
+        console.log(strings);
+    }
+    const debouncedFunction = debounce(fetchArray, 3000);
     messageForm.addEventListener('submit', (e) => {
         e.preventDefault();
-
         let inputValue = document.querySelector('.form_textarea').value;
-        let arr = [];
-        arr.push(inputValue)
         if (inputValue) {
             addMessage(inputValue, 'my_message');
-            createLoadingText('.chat_message-window');        
-            const promise = new Promise((resolve) => {
-                fetch(`https://jsonplaceholder.typicode.com/comments/${Math.floor(Math.random() * 500)}`)
-                    .then(response => response.json())
-                    .then(response => resolve(response))
-            })
-            promise.then((data) => {
-                setTimeout(() => {
-                    addMessage(data.body.charAt(0).toUpperCase() + data.body.slice(1), 'other_message');
-                }, 3000)
-            })
-
-           
+            createLoadingText('.chat_message-window');
+            debouncedFunction(inputValue);
         }
         document.querySelector('.form_textarea').value = '';
     })
@@ -223,7 +218,6 @@ window.addEventListener('DOMContentLoaded', () => {
     })
 
     function createLoadingText(pasteTo) {
-
         const waveDiv = document.createElement('div');
         waveDiv.classList.add('loading-wave');
 
@@ -233,16 +227,16 @@ window.addEventListener('DOMContentLoaded', () => {
             waveDiv.appendChild(barDiv);
         }
         document.querySelector(pasteTo).insertAdjacentElement('afterbegin', waveDiv)
-        const promise = new Promise((resolve)=>{
-            setTimeout(() => {
-                document.querySelectorAll('.loading-wave').forEach(elem=>{
-                    elem.classList.add('hidden');
-                })
-                resolve()
-            }, 2500)
-        })
-        promise.then(()=>{
-            clearTimeout(waveTimeout);
-        })
+        setTimeout(() => {
+            document.querySelectorAll('.loading-wave').forEach(elem => {
+                elem.classList.add('hidden');
+            })
+        }, 2500)
     }
+    document.querySelectorAll(".accordion-item").forEach((item) => {
+        item.querySelector(".accordion-item-header").addEventListener("click", () => {
+            item.classList.toggle("open");
+        });
+    });
+
 });

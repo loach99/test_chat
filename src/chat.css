@@ -6,6 +6,12 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+:root {
+    --border-color: none;
+    --background-color: #4a4a4a;
+    --transition: all 0.2s ease;
+}
+
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
 
     select:focus,
@@ -25,7 +31,6 @@
 
 .chat_header {
     min-height: 70px;
-    padding: 0 15px;
     justify-content: start;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -61,11 +66,13 @@
     display: flex;
     align-items: center;
 }
-.chat_header-expert-name{
+
+.chat_header-expert-name {
     display: flex;
     align-items: center;
 }
-.chat_header-expert-name>div{
+
+.chat_header-expert-name>div {
     background-color: #2f2f2f;
     padding: 10px;
     border-radius: 15px;
@@ -73,6 +80,7 @@
     font-weight: 700;
     margin-left: 30px;
 }
+
 @media (max-width: 962px) {
     .chat_header {
         justify-content: start;
@@ -96,7 +104,6 @@
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    padding: 0 15px;
 }
 
 /* @media (max-width: 962px) {
@@ -180,7 +187,8 @@
     transition: all 0.3s;
     background-color: #1E1F23;
 }
-.chat_message-window{
+
+.chat_message-window {
     display: flex;
     flex-direction: column-reverse;
     gap: 5px;
@@ -188,11 +196,13 @@
     overflow-y: scroll;
     padding: 0 10px 0 15px;
 }
-@media (max-width: 962px){
-    .chat_message-window{
+
+@media (max-width: 962px) {
+    .chat_message-window {
         padding: 0 10px 20px 15px;
     }
 }
+
 .chat_view_window {
     width: calc(100% - 30%);
     display: -webkit-box;
@@ -203,6 +213,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     justify-content: end;
+    background-color: #9881BD;
 }
 
 @media (max-width: 962px) {
@@ -255,6 +266,9 @@
     border-radius: 15px;
     word-break: normal;
     color: #ffffff;
+    box-shadow: -1px 12px 9px -1px rgba(47, 47, 47, 0.75);
+    -webkit-box-shadow: -1px 12px 9px -1px rgba(47, 47, 47, 0.75);
+    -moz-box-shadow: -1px 12px 9px -1px rgba(47, 47, 47, 0.75);
 }
 
 .my_message {
@@ -282,7 +296,8 @@
     .message {
         width: 100%;
     }
-    .other_message{
+
+    .other_message {
         margin: 0 0 5px;
     }
 }
@@ -394,21 +409,25 @@
     align-items: center;
     gap: 5px;
 }
-@media (max-width: 962px){
-    #expert_block{
+
+@media (max-width: 962px) {
+    #expert_block {
         left: calc(50% - 100px);
-        
+
     }
-    
+
 }
-#expert_block>span{
+
+#expert_block>span {
     text-align: center;
     font-size: 20px;
     font-weight: 700;
 }
-#expert_block>span:nth-child(2){
+
+#expert_block>span:nth-child(2) {
     color: #4590cd;
 }
+
 .burger>svg {
     width: 32px;
     height: 32px;
@@ -455,46 +474,116 @@
     align-items: flex-end;
     transition: 0.3s;
     position: absolute
-  }
-  @media (max-width: 962px){
-    .loading-wave{
+}
+
+@media (max-width: 962px) {
+    .loading-wave {
         left: 50px;
         bottom: 115px;
     }
-  }
+}
 
-  .loading-bar {
+.loading-bar {
     width: 5px;
     height: 5px;
     margin: 0 3px;
     background-color: rgba(78, 99, 201, 0.9);
     border-radius: 5px;
     animation: loading-wave-animation 1s ease-in-out infinite;
-  }
-  
-  .loading-bar:nth-child(2) {
+}
+
+.loading-bar:nth-child(2) {
     animation-delay: 0.1s;
-  }
-  
-  .loading-bar:nth-child(3) {
+}
+
+.loading-bar:nth-child(3) {
     animation-delay: 0.2s;
-  }
-  
-  .loading-bar:nth-child(4) {
+}
+
+.loading-bar:nth-child(4) {
     animation-delay: 0.3s;
-  }
-  
-  @keyframes loading-wave-animation {
+}
+
+@keyframes loading-wave-animation {
     0% {
-      height: 5px;
+        height: 5px;
     }
-  
+
     50% {
-      height: 20px;
+        height: 20px;
     }
-  
+
     100% {
-      height: 5px;
+        height: 5px;
     }
-  }
-  
+}
+
+.accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+    padding: 15px;
+}
+
+.accordion .accordion-item {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.accordion .accordion-item .accordion-item-description-wrapper hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    visibility: visible;
+}
+
+.accordion .accordion-item.open .accordion-item-description-wrapper hr {
+    visibility: visible;
+}
+
+.accordion .accordion-item .accordion-item-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.accordion-item-header>svg {
+    color: #fff;
+}
+
+.accordion .accordion-item .accordion-item-header .accordion-item-header-title {
+    font-weight: 600;
+    color: #fff
+}
+
+.accordion .accordion-item .accordion-item-header .accordion-item-header-icon {
+    transition: var(--transition);
+}
+
+.accordion .accordion-item.open .accordion-item-header .accordion-item-header-icon {
+    transform: rotate(-180deg);
+}
+
+.accordion .accordion-item .accordion-item-description-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.accordion .accordion-item.open .accordion-item-description-wrapper {
+    grid-template-rows: 1fr;
+}
+
+.accordion .accordion-item .accordion-item-description-wrapper .accordion-item-description {
+    min-height: 0;
+}
+
+.accordion .accordion-item .accordion-item-description-wrapper .accordion-item-description p {
+    padding: 10px;
+    color: #ccc;
+    line-height: 1.5;
+}
