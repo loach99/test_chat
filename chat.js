@@ -73,7 +73,7 @@ window.addEventListener('DOMContentLoaded', () => {
         picture.style.left = picture_pos['x'] + "px";
         picture.style.top = picture_pos['y'] + "px";
         picture.style.zIndex = 32767;
-        picture.style.color = '#4590cd'
+        picture.style.color = 'rgba(78, 99, 201, 0.9)'
         let start_x = picture_pos['x'] + 0.5 * picture_pos['width'];
         let start_y = picture_pos['y'] + 0.5 * picture_pos['height'];
 
@@ -85,12 +85,12 @@ window.addEventListener('DOMContentLoaded', () => {
         picture.style.transform = "translateX(" + delta_x + "px)";
         picture.style.transform += "translateY(" + delta_y + "px)";
         picture.style.transition = "1s";
-        picture.style.color = '#4590cd'
+        picture.style.color = 'rgba(78, 99, 201, 0.9)'
         document.querySelector('.expert_title').classList.add('hidden')
         setTimeout(() => {
             expertNamePlace.appendChild(picture);
             picture.style.position = "static";
-            picture.style.color = '#4590cd'
+            picture.style.color = 'rgba(78, 99, 201, 0.9)'
         }, 1000)
 
     }

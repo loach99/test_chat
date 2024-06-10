@@ -35,7 +35,7 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    border-bottom: 3px solid #666666;
+    border-bottom: 3px solid #393939;
 
 }
 
@@ -47,7 +47,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-right: 3px solid #666666;
+    border-right: 3px solid #393939;
     width: 30%;
     padding: 0 15px;
 }
@@ -139,7 +139,7 @@
 .chat_user_list {
     width: 30%;
     overflow-y: scroll;
-    border-right: 3px solid #666666;
+    border-right: 3px solid #393939;
 }
 
 .user_list-onBack {
@@ -213,7 +213,10 @@
     -ms-flex-direction: column;
     flex-direction: column;
     justify-content: end;
-    background-color: #9881BD;
+    background-image: url(../img/photo_2024-06-10_22-18-22.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 @media (max-width: 962px) {
@@ -233,7 +236,7 @@
 }
 
 .test_box {
-    background-color: rgb(84 84 84);
+    background-color: #393939;
     border: 1px solid rgb(255, 255, 255, 0);
     width: 50%;
 }
@@ -266,9 +269,9 @@
     border-radius: 15px;
     word-break: normal;
     color: #ffffff;
-    box-shadow: -1px 12px 9px -1px rgba(47, 47, 47, 0.75);
+    /* box-shadow: -1px 12px 9px -1px rgba(47, 47, 47, 0.75);
     -webkit-box-shadow: -1px 12px 9px -1px rgba(47, 47, 47, 0.75);
-    -moz-box-shadow: -1px 12px 9px -1px rgba(47, 47, 47, 0.75);
+    -moz-box-shadow: -1px 12px 9px -1px rgba(47, 47, 47, 0.75); */
 }
 
 .my_message {
@@ -522,7 +525,6 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 500px;
     padding: 15px;
 }
 
