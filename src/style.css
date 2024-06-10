@@ -1,0 +1,188 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+a {
+    color: #eeeeee;
+}
+body{
+    background-color: #1E1F23;
+}
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px 35px;
+}
+
+@media screen and (max-width: 991px) {
+    .container {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+.header_logo{
+    color: #fff;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.header_nav>ul {
+    display: flex;
+}
+
+@media screen and (max-width: 991px) {
+    .header_nav {
+        display: none;
+    }
+}
+
+.header_nav>ul>li>a {
+    padding: 25px;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 15px;
+}
+
+.btn_chat {
+    background-color: #4e63c9;
+    padding: 12px 20px;
+}
+.header_btn-wrap{
+    display: flex;
+    gap: 15px;
+}
+@media screen and (max-width: 991px) {
+    .header_btn-wrap{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+.btn_learn_more{
+    border: 1px solid #ffffff;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 12px 20px;
+}
+.btn_learn_more>a{
+    color: #ffffff;
+}
+
+.header_component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 150px 0 100px;
+    gap: 20px;
+}
+
+
+.header_component>h1 {
+    color: #fff;
+    text-align: center;
+    font-size: 72px;
+    transition: .3s;
+}
+
+.header_component>p {
+    color: #fff;
+    text-align: center;
+    margin: 0 10vw;
+    transition: .3s;
+}
+@media screen and (max-width: 1200px) {
+    .header_component {
+        width: 100%;
+    }
+    .header_component>h1 {
+        text-align: center;
+        font-size: 54px;
+    }
+}
+@media screen and (max-width: 420px) {
+    .header_component {
+        width: 100%;
+    }
+    .header_component>h1 {
+        text-align: center;
+        font-size: 32px;
+    }
+    .header_component>p {
+        font-size: 14px;
+        text-align: center;
+        margin: 0 10vw;
+    }
+}
+.marque_wrap{
+    margin-top: -3.1rem;
+    max-width: 100%;
+    padding: 20px;
+    max-width: 150rem;
+}
+.items_wrap{
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: 20px
+}
+.marque {
+    animation: scroll 20s linear infinite;
+}
+.markque_stop{
+    animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+}
+
+@keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - 20px));
+    }
+  
+}
+.reverce {
+    animation-direction: reverse;
+}
+.items {
+    flex-shrink: 0;
+    display: flex;
+    gap: 20px;
+    counter-reset: item;
+    justify-content: space-around;
+    min-width: 100%;
+}
+.item{
+    flex: 0 0 auto;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: #fff;
+    margin: 10px 0;
+    transition: all 0.1s ease-in-out;
+}
+.item:hover{
+    transition: .3s;
+    transform: scale(1.1);
+}
