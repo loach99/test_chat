@@ -42,7 +42,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     moveToMessage(expertBlock, chatImgUser)
                     moveToChatHeader(expertName, expertNamePlace)
-                }, 1000)
+                }, 1500)
             })
     })
 
