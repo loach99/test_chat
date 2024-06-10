@@ -394,6 +394,13 @@
     align-items: center;
     gap: 5px;
 }
+@media (max-width: 962px){
+    #expert_block{
+        left: calc(50% - 100px);
+        
+    }
+    
+}
 #expert_block>span{
     text-align: center;
     font-size: 20px;
