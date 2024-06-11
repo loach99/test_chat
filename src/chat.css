@@ -188,7 +188,6 @@
     height: calc(100% - 73px);
     display: flex;
     justify-content: start;
-    flex-direction: column-reverse;
 }
 
 .chat_user-close-modal {
