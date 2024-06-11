@@ -21,9 +21,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const promise = new Promise((resolve) => {
         setTimeout(() => {
-            document.querySelector('.spin-wrapper').classList.add("hidden");
+            document.querySelector('.loader-container').classList.add("hidden");
             resolve()
-        }, 500)
+        }, 1000)
     })
     const promise2 = new Promise((resolve) => {
         //здесь запрос на сервер
@@ -209,12 +209,17 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         document.querySelector('.form_textarea').value = '';
     })
-
+    //боковое меню и бургер
     document.querySelector('.burger').addEventListener('click', () => {
-        document.querySelector('.chat_user_list').classList.add('active')
+        document.querySelector('.chat_user_list-wrap').classList.add('active');
+        document.querySelector('.chat_user-close-modal').style.display = 'block'
     })
+     document.querySelector('.chat_user-close-modal').addEventListener('click',()=>{
+        document.querySelector('.chat_user_list-wrap').classList.remove('active')
+        document.querySelector('.chat_user-close-modal').style.display = 'none'
+     })
     document.querySelectorAll('.user_list-onBack')[1].addEventListener('click', () => {
-        document.querySelector('.chat_user_list').classList.remove('active')
+        document.querySelector('.chat_user_list-wrap').classList.remove('active')
     })
 
     function createLoadingText(pasteTo) {
