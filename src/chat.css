@@ -233,7 +233,7 @@
     }
     .user_list-onBack>svg {
         display: block;
-
+        cursor: pointer;
     }
 
     .user_list-onBack>img {
