@@ -21,9 +21,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const promise = new Promise((resolve) => {
         setTimeout(() => {
-            document.querySelector('.loader-container').classList.add("hidden");
+            document.querySelector('.cube_container').classList.add("hidden");
             resolve()
-        }, 1000)
+        }, 2000)
     })
     const promise2 = new Promise((resolve) => {
         //здесь запрос на сервер
@@ -34,7 +34,7 @@ window.addEventListener('DOMContentLoaded', () => {
     promise.then(() => {
         promise2
             .then((data) => {
-                animateBlock(data.url)
+                animateBlock(data.url);               
                 return data
             })
             .then((data) => {
@@ -42,7 +42,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     moveToMessage(expertBlock, chatImgUser)
                     moveToChatHeader(expertName, expertNamePlace)
-                }, 1500)
+                }, 2000)
             })
     })
 
@@ -115,7 +115,7 @@ window.addEventListener('DOMContentLoaded', () => {
         void picture.offsetWidth;
         picture.style.transform = "translateX(" + delta_x + "px)";
         picture.style.transform += "translateY(" + delta_y + "px)";
-        picture.style.transform += "scale(0.25)";
+        picture.style.transform += "scale(0.15)";
         picture.style.transition = "1s";
 
         setTimeout(() => {
