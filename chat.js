@@ -34,7 +34,7 @@ window.addEventListener('DOMContentLoaded', () => {
     promise.then(() => {
         promise2
             .then((data) => {
-                animateBlock(data.url);               
+                animateBlock(data.url);
                 return data
             })
             .then((data) => {
@@ -124,7 +124,10 @@ window.addEventListener('DOMContentLoaded', () => {
             picture.style.transform = 'none';
             picture.style.width = '50px';
             picture.style.height = '50px';
-            picture.firstElementChild.style.border = "3px solid grey";
+            picture.style.display = 'block'; 
+            // display: flex;
+            // flex - shrink: 0;
+            picture.firstElementChild.style.border = "3px solid white";
             document.querySelector('.expert_img').style.width = '50px'
             document.querySelector('.expert_img').style.height = '50px'
         }, 1000)
@@ -214,10 +217,10 @@ window.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.chat_user_list-wrap').classList.add('active');
         document.querySelector('.chat_user-close-modal').style.display = 'block'
     })
-     document.querySelector('.chat_user-close-modal').addEventListener('click',()=>{
+    document.querySelector('.chat_user-close-modal').addEventListener('click', () => {
         document.querySelector('.chat_user_list-wrap').classList.remove('active')
         document.querySelector('.chat_user-close-modal').style.display = 'none'
-     })
+    })
     document.querySelectorAll('.user_list-onBack')[1].addEventListener('click', () => {
         document.querySelector('.chat_user_list-wrap').classList.remove('active')
     })
