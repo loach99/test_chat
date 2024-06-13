@@ -169,6 +169,7 @@
     border-bottom: 3px solid #393939;
     padding: 15px;
     display: none;
+    background-color: #1E1F23;
 }
 
 .user_list-header>div>span {
@@ -201,6 +202,7 @@
     height: calc(100% - 73px);
     display: flex;
     justify-content: start;
+    background: #e5e7eb;
 }
 
 .chat_user-close-modal {
@@ -270,7 +272,7 @@
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-    background-color: #1E1F23;
+    /* background-color: #1E1F23; */
 }
 
 .chat_message-window {
