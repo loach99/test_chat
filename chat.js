@@ -21,9 +21,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const promise = new Promise((resolve) => {
         setTimeout(() => {
-            document.querySelector('.cube_container').classList.add("hidden");
-            resolve()
-        }, 2000)
+            document.querySelector('.spiner_wrap').classList.add("rotate");
+        }, 1000)
+        setTimeout(() => {
+            document.querySelector('.spinner-text').innerHTML = `Специалист найден. Подключение...`
+        }, 1500)
+        // setTimeout(()=>{
+        //     document.querySelector('.loader-container').classList.add("hidden");
+        //     // resolve()
+        // },3500)
     })
     const promise2 = new Promise((resolve) => {
         //здесь запрос на сервер
@@ -32,6 +38,7 @@ window.addEventListener('DOMContentLoaded', () => {
             .then(response => resolve(response))
     })
     promise.then(() => {
+       
         promise2
             .then((data) => {
                 animateBlock(data.url);
@@ -124,7 +131,7 @@ window.addEventListener('DOMContentLoaded', () => {
             picture.style.transform = 'none';
             picture.style.width = '50px';
             picture.style.height = '50px';
-            picture.style.display = 'block'; 
+            picture.style.display = 'block';
             // display: flex;
             // flex - shrink: 0;
             picture.firstElementChild.style.border = "3px solid white";
