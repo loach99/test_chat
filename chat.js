@@ -26,10 +26,10 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             document.querySelector('.spinner-text').innerHTML = `Специалист найден. Подключение...`
         }, 1500)
-        // setTimeout(()=>{
-        //     document.querySelector('.loader-container').classList.add("hidden");
-        //     // resolve()
-        // },3500)
+        setTimeout(()=>{
+            document.querySelector('.loader-container').classList.add("hidden");
+            resolve()
+        },3500)
     })
     const promise2 = new Promise((resolve) => {
         //здесь запрос на сервер

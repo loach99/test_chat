@@ -440,8 +440,6 @@
 
 /* Spinner Animation */
 .spinner {
-
-   
     width: 150px;
     height: 150px;
     -webkit-animation: spin 1s linear infinite;
