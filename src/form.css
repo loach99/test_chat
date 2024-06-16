@@ -23,14 +23,14 @@
     border-radius: 15px;
     padding: 15px;
     outline: none;
-    background-color: rgba(255, 255, 255, 1);
-    color: #000000;
+    background-color: rgb(99 90 114);
+    color: #fff;
     border: 3px solid transparent;
     transition: border-color 0.2s; 
 }
-.form_textarea:focus{
+/* .form_textarea:focus{
     border-color: rgba(78, 99, 201, 0.9);
-}
+} */
 .form_textarea::placeholder{
     color: #ccc;
     font-size: 14px;
@@ -63,7 +63,7 @@
     border-radius: 50%;
     width: 48px;
     height: 48px;
-    background: rgba(78, 99, 201, 0.9);
+    background:rgb(167 107 212 / 90%);
 }
 .form_button>svg{
     width: 1.1rem;

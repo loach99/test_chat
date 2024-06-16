@@ -80,7 +80,7 @@ window.addEventListener('DOMContentLoaded', () => {
         picture.style.left = picture_pos['x'] + "px";
         picture.style.top = picture_pos['y'] + "px";
         picture.style.zIndex = 32767;
-        picture.style.color = 'rgba(78, 99, 201, 0.9)'
+        picture.style.color = 'rgb(167 107 212 / 90%)'
         let start_x = picture_pos['x'] + 0.5 * picture_pos['width'];
         let start_y = picture_pos['y'] + 0.5 * picture_pos['height'];
 
@@ -92,12 +92,12 @@ window.addEventListener('DOMContentLoaded', () => {
         picture.style.transform = "translateX(" + delta_x + "px)";
         picture.style.transform += "translateY(" + delta_y + "px)";
         picture.style.transition = "1s";
-        picture.style.color = 'rgba(78, 99, 201, 0.9)'
+        picture.style.color = 'rgb(167 107 212 / 90%)'
         document.querySelector('.expert_title').classList.add('hidden')
         setTimeout(() => {
             expertNamePlace.appendChild(picture);
             picture.style.position = "static";
-            picture.style.color = 'rgba(78, 99, 201, 0.9)'
+            picture.style.color = 'rgb(167 107 212 / 90%)'
         }, 1000)
 
     }
@@ -134,7 +134,7 @@ window.addEventListener('DOMContentLoaded', () => {
             picture.style.display = 'block';
             // display: flex;
             // flex - shrink: 0;
-            picture.firstElementChild.style.border = "3px solid white";
+            // picture.firstElementChild.style.border = "3px solid white";
             document.querySelector('.expert_img').style.width = '50px'
             document.querySelector('.expert_img').style.height = '50px'
         }, 1000)
@@ -165,7 +165,6 @@ window.addEventListener('DOMContentLoaded', () => {
             expertImg.classList.add('expert_img');
             expertImg.style.width = '50px'
             expertImg.style.height = '50px'
-            expertImg.style.border = "3px solid grey";
             // устанавлтваем атрибут из изображения полученного с бэка 
             expertImg.setAttribute('src', firstExpertImg.getAttribute('src'));
             imgUserDiv.appendChild(expertImg);
