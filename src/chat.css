@@ -119,6 +119,10 @@
 }
 
 @media (max-width: 962px) {
+    .chat_header-expert-name>div>span {
+        font-size: 14px;
+    }
+
     .chat_header {
         -webkit-box-pack: start;
         -ms-flex-pack: start;
@@ -266,6 +270,15 @@
     }
 }
 
+@media (max-width: 640px) {
+    .chat_user_list-wrap {
+        width: 15rem;
+        -webkit-transform: translateX(-15rem);
+        -ms-transform: translateX(-15rem);
+        transform: translateX(-15rem);
+    }
+}
+
 .active {
     -webkit-transform: translateX(0);
     -ms-transform: translateX(0);
@@ -312,7 +325,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; */
-   
+
     background: rgb(201, 100, 114);
     background: linear-gradient(106deg, rgba(201, 100, 114, 1) 0%, rgba(215, 175, 227, 1) 27%, rgba(123, 159, 228, 1) 60%, rgba(227, 112, 172, 1) 100%);
 }
