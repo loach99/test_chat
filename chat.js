@@ -68,7 +68,7 @@ window.addEventListener('DOMContentLoaded', () => {
         promise.then(() => {
             setTimeout(() => {
                 otherMessage.children[1].children[0].innerHTML = `${message}`;
-                document.querySelector('.form_textarea').removeAttribute('readonly');
+                document.querySelector('.form_textarea').removeAttribute('disabled');
             }, 4000)
         })
     }
