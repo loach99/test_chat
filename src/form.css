@@ -28,9 +28,7 @@
     border: 3px solid transparent;
     transition: border-color 0.2s; 
 }
-/* .form_textarea:focus{
-    border-color: rgba(78, 99, 201, 0.9);
-} */
+
 .form_textarea::placeholder{
     color: #ccc;
     font-size: 14px;

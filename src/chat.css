@@ -347,11 +347,11 @@
     border: 3px solid transparent;
 }
 
-.footer:focus-within {
+/* .footer:focus-within {
     background: linear-gradient(rgb(99 90 114), rgb(99 90 114)) padding-box,
         linear-gradient(to right, rgb(142, 31, 161), darkorchid) border-box;
     border: 3px solid transparent;
-}
+} */
 
 .test_box {
     background-color: #393939;
@@ -656,7 +656,7 @@
 @media (max-width: 962px) {
     .loading-wave {
         left: 50px;
-        bottom: 115px;
+        bottom: 95px;
     }
 }
 
