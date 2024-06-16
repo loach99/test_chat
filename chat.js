@@ -56,6 +56,7 @@ window.addEventListener('DOMContentLoaded', () => {
     function animateTyping(message) {
         const promise = new Promise((resolve, reject) => {
             setTimeout(() => {
+                document.querySelector('.footer').style.opacity = '1';
                 otherMessage.classList.add('show');
                 resolve()
             }, 2000)

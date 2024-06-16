@@ -345,6 +345,8 @@
     border-radius: 5px;
     background-color: rgb(99 90 114);
     border: 3px solid transparent;
+    opacity: 0;
+    transition: .3s;
 }
 
 /* .footer:focus-within {
