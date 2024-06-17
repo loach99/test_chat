@@ -20,16 +20,16 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     const promise = new Promise((resolve) => {
-        setTimeout(() => {
-            document.querySelector('.spiner_wrap').classList.add("rotate");
-        }, 1000)
+        // setTimeout(() => {
+        //     document.querySelector('.spiner_wrap').classList.add("rotate");
+        // }, 1000)
         setTimeout(() => {
             document.querySelector('.spinner-text').innerHTML = `Специалист найден. Подключение...`
         }, 1500)
         setTimeout(()=>{
             document.querySelector('.loader-container').classList.add("hidden");
             resolve()
-        },3500)
+        },2500)
     })
     const promise2 = new Promise((resolve) => {
         //здесь запрос на сервер
@@ -83,7 +83,7 @@ window.addEventListener('DOMContentLoaded', () => {
         picture.style.zIndex = 32767;
         picture.style.color = 'rgb(167 107 212 / 90%)'
         let start_x = picture_pos['x'] + 0.5 * picture_pos['width'];
-        let start_y = picture_pos['y'] + 0.5 * picture_pos['height'];
+        let start_y = picture_pos['y'] + 0.4 * picture_pos['height'];
 
         let delta_x = (cart_pos['x'] + 0.5 * cart_pos['width']) - start_x;
         let delta_y = (cart_pos['y'] + 0.5 * cart_pos['height']) - start_y;
@@ -116,8 +116,8 @@ window.addEventListener('DOMContentLoaded', () => {
         let start_y = picture_pos['y'] + 0.5 * picture_pos['height'];
 
         let delta_x = (cart_pos['x'] + 0.5 * cart_pos['width']) - start_x;
-        let delta_y = (cart_pos['y'] + 0.5 * cart_pos['height']) - start_y;
-
+        let delta_y = (cart_pos['y'] + (window.innerWidth < 962 ?0.35 : 0.5) * cart_pos['height']) - start_y;
+        
         document.body.appendChild(picture);
 
         void picture.offsetWidth;
@@ -133,9 +133,6 @@ window.addEventListener('DOMContentLoaded', () => {
             picture.style.width = '50px';
             picture.style.height = '50px';
             picture.style.display = 'block';
-            // display: flex;
-            // flex - shrink: 0;
-            // picture.firstElementChild.style.border = "3px solid white";
             document.querySelector('.expert_img').style.width = '50px'
             document.querySelector('.expert_img').style.height = '50px'
         }, 1000)

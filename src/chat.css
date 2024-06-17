@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Manrope", sans-serif;
 }
 
 :root {
@@ -154,12 +156,6 @@
     justify-content: space-between;
 }
 
-/* @media (max-width: 962px) {
-    .chat_window-wrapp {
-        padding: 15px;
-    }
-} */
-
 .user_list-header {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -197,7 +193,6 @@
 
 .chat_user_list-wrap {
     width: 20%;
-    /* border-right: 3px solid #393939; */
     background-color: #4f485a;
 }
 
@@ -255,7 +250,9 @@
         display: block;
         cursor: pointer;
     }
-
+    .user_list-onBack>svg>g>path{
+        fill: #a76bd4e6;
+    }
     .user_list-onBack>img {
         width: 25px;
         height: 45px;
@@ -337,7 +334,7 @@
 }
 
 .footer {
-    min-height: 80px;
+    min-height: 70px;
     margin: 0 15px 10px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -348,7 +345,11 @@
     opacity: 0;
     transition: .3s;
 }
-
+@media (max-width: 380px){
+   .footer{
+    min-height: 60px;
+   }
+}
 /* .footer:focus-within {
     background: linear-gradient(rgb(99 90 114), rgb(99 90 114)) padding-box,
         linear-gradient(to right, rgb(142, 31, 161), darkorchid) border-box;
@@ -420,17 +421,29 @@
 
 @media (max-width: 962px) {
     .my_message {
-        margin: 0 0 5px;
-        background-color: #838383;
+        margin: 0 0 5px 50%;
     }
 
     .message {
-        width: 100%;
+        width: 50%;
     }
 
     .other_message {
         margin: 0 0 5px;
     }
+}
+@media (max-width: 380px){
+    .my_message {
+        margin: 0 0 5px 40%;
+    }
+
+    .message {
+        width: 60%;
+    }
+    .chat_message-window {
+        padding: 0px 15px 20px 15px;
+    }
+
 }
 
 .btn {
@@ -510,9 +523,11 @@
 }
 
 .spinner-text {
-    margin-top: 50px;
+    margin-top: 30px;
     color: #ffffff;
     font-size: 20px;
+    text-align: center;
+    transition: .5s;
 }
 
 .spinner-text-done {
@@ -588,7 +603,9 @@
     }
 
 }
-
+.expert_name-place{
+    transition: .3s;
+}
 #expert_block>span {
     text-align: center;
     font-size: 20px;
@@ -658,7 +675,7 @@
 @media (max-width: 962px) {
     .loading-wave {
         left: 50px;
-        bottom: 95px;
+        bottom: 85px;
     }
 }
 
@@ -802,4 +819,149 @@
     padding: 10px;
     color: #fff;
     line-height: 1.5;
+}
+
+.page{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Loader CSS */
+.loadContainer{
+	--loaderSize: 150px; /* size of the container */
+}
+
+.loadCircle{
+	--loaderSpeed: 1.4s;
+}
+
+.loadCircleInner{
+	--border-thickness: 10px; /* the bigger the loader is, the thicker this needs to be */
+  --loader-base-color: 187,0,255; /* rbg color */
+}
+
+.loadContainer{
+	position: relative;
+	width: var(--loaderSize);
+	height: var(--loaderSize);
+}
+
+.loadInner{
+	width: 82.5%;
+	height: 85%;
+	border-radius: 100%;
+	position: absolute;
+	top: 7.5%;
+	left: 7.25%;
+}
+
+.loadCircle{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+.loadCircle > .loadCircleInner{
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+	border: var(--border-thickness) solid rgba(var(--loader-base-color),0.7);
+	border-right: none;
+	border-top: none;
+	background-clip: padding;
+	box-shadow: inset 0px 0px 10px rgba(var(--loader-base-color),0.15);
+}
+.loadCircle:nth-of-type(0){
+	transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+}
+.loadCircle:nth-of-type(0) .loadCircleInner{
+	animation: loaderSpin var(--loaderSpeed) infinite linear;
+		-o-animation: loaderSpin var(--loaderSpeed) infinite linear;
+		-ms-animation: loaderSpin var(--loaderSpeed) infinite linear;
+		-webkit-animation: loaderSpin var(--loaderSpeed) infinite linear;
+		-moz-animation: loaderSpin var(--loaderSpeed) infinite linear;
+}
+.loadCircle:nth-of-type(1){
+	transform: rotate(70deg);
+		-o-transform: rotate(70deg);
+		-ms-transform: rotate(70deg);
+		-webkit-transform: rotate(70deg);
+		-moz-transform: rotate(70deg);
+}
+.loadCircle:nth-of-type(1) .loadCircleInner{
+	animation: loaderSpin var(--loaderSpeed) infinite linear;
+		-o-animation: loaderSpin var(--loaderSpeed) infinite linear;
+		-ms-animation: loaderSpin var(--loaderSpeed) infinite linear;
+		-webkit-animation: loaderSpin var(--loaderSpeed) infinite linear;
+		-moz-animation: loaderSpin var(--loaderSpeed) infinite linear;
+}
+.loadCircle:nth-of-type(2){
+	transform: rotate(140deg);
+		-o-transform: rotate(140deg);
+		-ms-transform: rotate(140deg);
+		-webkit-transform: rotate(140deg);
+		-moz-transform: rotate(140deg);
+}
+.loadCircle:nth-of-type(2) .loadCircleInner{
+	animation: loaderSpin var(--loaderSpeed) infinite linear;
+		-o-animation: loaderSpin var(--loaderSpeed) infinite linear;
+		-ms-animation: loaderSpin var(--loaderSpeed) infinite linear;
+		-webkit-animation: loaderSpin var(--loaderSpeed) infinite linear;
+		-moz-animation: loaderSpin var(--loaderSpeed) infinite linear;
+}
+.loadInner{
+	animation: loaderSpin (var(--loaderSpeed)*2.5) infinite linear;
+		-o-animation: loaderSpin (var(--loaderSpeed)*2.5) infinite linear;
+		-ms-animation: loaderSpin (var(--loaderSpeed)*2.5) infinite linear;
+		-webkit-animation: loaderSpin (var(--loaderSpeed)*2.5) infinite linear;
+		-moz-animation: loaderSpin (var(--loaderSpeed)*2.5) infinite linear;
+}
+@keyframes loaderSpin{
+	from{
+		transform: rotate(0deg);
+	}
+	to{
+		transform: rotate(360deg);
+	}
+}
+@-o-keyframes loaderSpin{
+	from{
+		-o-transform: rotate(0deg);
+	}
+	to{
+		-o-transform: rotate(360deg);
+	}
+}
+@-ms-keyframes loaderSpin{
+	from{
+		-ms-transform: rotate(0deg);
+	}
+	to{
+		-ms-transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes loaderSpin{
+	from{
+		-webkit-transform: rotate(0deg);
+	}
+	to{
+		-webkit-transform: rotate(360deg);
+	}
+}
+@-moz-keyframes loaderSpin{
+	from{
+		-moz-transform: rotate(0deg);
+	}
+	to{
+		-moz-transform: rotate(360deg);
+	}
 }
