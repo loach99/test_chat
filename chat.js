@@ -36,6 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
         fetch(`https://jsonplaceholder.typicode.com/photos/${Math.floor(Math.random() * 1000)}`)
             .then(response => response.json())
             .then(response => resolve(response))
+            
     })
     promise.then(() => {
        
