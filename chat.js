@@ -10,12 +10,21 @@ window.addEventListener('DOMContentLoaded', () => {
     const otherMessage = document.querySelector(".other_message");
     const messageForm = document.querySelector(".footer_form");
 
-    function animateBlock(image) {
+    function animateBlock(image,text) {
         let block = document.getElementById('expert_block');
         let img = document.createElement('img');
+        let div = document.createElement('div');
+        let chatDiv = document.createElement('div');
+        chatDiv.classList.add('chat_typing');
+        div.classList.add('test_box','message','other_message','show','animated_message')
         img.setAttribute('src', image);
         img.classList.add('expert_img')
-        block.insertAdjacentElement('afterbegin', img)
+        chatDiv.innerHTML = `${text}`
+        div.insertAdjacentElement('afterbegin', img)
+        div.insertAdjacentElement('beforeend',chatDiv)
+        block.insertAdjacentElement('afterbegin', div)
+       
+        console.log(div)
         block.classList.add('show-block');
     }
 
@@ -29,26 +38,26 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(()=>{
             document.querySelector('.loader-container').classList.add("hidden");
             resolve()
-        },2500)
+        },25)
     })
+    const chat_window = document.querySelector('.img_user')
     const promise2 = new Promise((resolve) => {
         //здесь запрос на сервер
         fetch(`https://jsonplaceholder.typicode.com/photos/${Math.floor(Math.random() * 1000)}`)
             .then(response => response.json())
             .then(response => resolve(response))
-            
     })
     promise.then(() => {
        
         promise2
             .then((data) => {
-                animateBlock(data.url);
+                animateBlock(data.url, data.title.charAt(0).toUpperCase() + data.title.slice(1));
                 return data
             })
             .then((data) => {
                 animateTyping(data.title.charAt(0).toUpperCase() + data.title.slice(1))
                 setTimeout(() => {
-                    moveToMessage(expertBlock, chatImgUser)
+                    moveToMessage(expertBlock, chat_window)
                     moveToChatHeader(expertName, expertNamePlace)
                 }, 2000)
             })
@@ -58,9 +67,10 @@ window.addEventListener('DOMContentLoaded', () => {
         const promise = new Promise((resolve, reject) => {
             setTimeout(() => {
                 document.querySelector('.footer').style.opacity = '1';
+                otherMessage.children[1].children[0].innerHTML = `${message}`;
                 otherMessage.classList.add('show');
                 resolve()
-            }, 2000)
+            }, 3000)
         })
         promise.then(() => {
             setTimeout(() => {
@@ -69,7 +79,7 @@ window.addEventListener('DOMContentLoaded', () => {
         })
         promise.then(() => {
             setTimeout(() => {
-                otherMessage.children[1].children[0].innerHTML = `${message}`;
+               
                 document.querySelector('.form_textarea').removeAttribute('disabled');
             }, 4000)
         })
@@ -110,23 +120,22 @@ window.addEventListener('DOMContentLoaded', () => {
         picture.style.position = "fixed";
         picture.style.left = picture_pos['x'] + "px";
         picture.style.top = picture_pos['y'] + "px";
-        // picture.style.border = "5px solid grey";
         picture.style.zIndex = 32767;
 
-        let start_x = picture_pos['x'] + 0.5 * picture_pos['width'];
+        let start_x = picture_pos['x'] + 0.2 * picture_pos['width'];
         let start_y = picture_pos['y'] + 0.5 * picture_pos['height'];
 
         let delta_x = (cart_pos['x'] + 0.5 * cart_pos['width']) - start_x;
-        let delta_y = (cart_pos['y'] + (window.innerWidth < 962 ?0.35 : 0.5) * cart_pos['height']) - start_y;
+        let delta_y = (cart_pos['y'] + 1.5 * cart_pos['height']) - start_y;
         
         document.body.appendChild(picture);
 
         void picture.offsetWidth;
         picture.style.transform = "translateX(" + delta_x + "px)";
         picture.style.transform += "translateY(" + delta_y + "px)";
-        picture.style.transform += "scale(0.15)";
+        picture.style.transform += "scale(0.75)"; 
         picture.style.transition = "1s";
-
+   
         setTimeout(() => {
             document.querySelector('.img_user').appendChild(picture);
             picture.style.position = "static";
@@ -136,6 +145,7 @@ window.addEventListener('DOMContentLoaded', () => {
             picture.style.display = 'block';
             document.querySelector('.expert_img').style.width = '50px'
             document.querySelector('.expert_img').style.height = '50px'
+            document.querySelector('.chat_typing').style.display = 'none'
         }, 1000)
 
     }
