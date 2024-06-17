@@ -251,9 +251,11 @@
         display: block;
         cursor: pointer;
     }
-    .user_list-onBack>svg>g>path{
+
+    .user_list-onBack>svg>g>path {
         fill: #a76bd4e6;
     }
+
     .user_list-onBack>img {
         width: 25px;
         height: 45px;
@@ -323,9 +325,8 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; */
-
-    background: rgb(201, 100, 114);
-    background: linear-gradient(106deg, rgba(201, 100, 114, 1) 0%, rgba(215, 175, 227, 1) 27%, rgba(123, 159, 228, 1) 60%, rgba(227, 112, 172, 1) 100%);
+    background: rgb(151,53,161);
+    background: linear-gradient(148deg, rgb(197 123 216 / 80%) 7%, rgb(195 166 225 / 90%) 32%, rgba(210, 137, 212, 0.8) 57%, rgba(223, 152, 211, 0.8) 77%);
 }
 
 @media (max-width: 962px) {
@@ -340,22 +341,18 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    border-radius: 5px;
+    border-radius: 15px;
     background-color: rgb(99 90 114);
     border: 3px solid transparent;
     opacity: 0;
     transition: .3s;
 }
-@media (max-width: 380px){
-   .footer{
-    min-height: 60px;
-   }
+
+@media (max-width: 380px) {
+    .footer {
+        min-height: 60px;
+    }
 }
-/* .footer:focus-within {
-    background: linear-gradient(rgb(99 90 114), rgb(99 90 114)) padding-box,
-        linear-gradient(to right, rgb(142, 31, 161), darkorchid) border-box;
-    border: 3px solid transparent;
-} */
 
 .test_box {
     background-color: #393939;
@@ -391,7 +388,7 @@
     -webkit-box-flex: 0;
     -ms-flex: 0 0 70px;
     flex: 0 0 70px;
-    border-radius: 5px;
+    border-radius: 15px;
     word-break: normal;
     /* color: #ffffff; */
     color: #ffffff;
@@ -433,7 +430,8 @@
         margin: 0 0 5px;
     }
 }
-@media (max-width: 380px){
+
+@media (max-width: 380px) {
     .my_message {
         margin: 0 0 5px 35%;
         font-size: 14px;
@@ -442,8 +440,9 @@
 
     .message {
         width: 65%;
-        
+
     }
+
     .chat_message-window {
         padding: 0px 15px 20px 15px;
     }
@@ -573,7 +572,8 @@
 .chat_typing>p {
     color: #ffffff;
 }
-@media (max-width: 380px){
+
+@media (max-width: 380px) {
     .chat_typing>p {
         font-size: 14px;
     }
@@ -613,9 +613,11 @@
     }
 
 }
-.expert_name-place{
+
+.expert_name-place {
     transition: .3s;
 }
+
 #expert_block>span {
     text-align: center;
     font-size: 20px;
@@ -651,8 +653,8 @@
     align-items: center;
 }
 
-@media (max-width: 380px){
-    .chat_typing{
+@media (max-width: 380px) {
+    .chat_typing {
         font-size: 14px;
     }
 }
@@ -695,7 +697,7 @@
 @media (max-width: 962px) {
     .loading-wave {
         left: 50px;
-        bottom: 85px;
+        bottom: 90px;
     }
 }
 
@@ -767,7 +769,7 @@
 .accordion .accordion-item {
     background-color: var(--background-color);
     border: 1px solid var(--border-color);
-    border-radius: 5px;
+    border-radius: 15px;
 }
 
 .accordion .accordion-item .accordion-item-description-wrapper hr {
@@ -790,7 +792,7 @@
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    padding: 10px;
+    padding: 10px 20px;
     cursor: pointer;
 }
 
@@ -841,147 +843,167 @@
     line-height: 1.5;
 }
 
-.page{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+.page {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 /* Loader CSS */
-.loadContainer{
-	--loaderSize: 150px; /* size of the container */
+.loadContainer {
+    --loaderSize: 150px;
+    /* size of the container */
 }
 
-.loadCircle{
-	--loaderSpeed: 1.4s;
+.loadCircle {
+    --loaderSpeed: 1.4s;
 }
 
-.loadCircleInner{
-	--border-thickness: 10px; /* the bigger the loader is, the thicker this needs to be */
-  --loader-base-color: 187,0,255; /* rbg color */
+.loadCircleInner {
+    --border-thickness: 10px;
+    /* the bigger the loader is, the thicker this needs to be */
+    --loader-base-color: 187, 0, 255;
+    /* rbg color */
 }
 
-.loadContainer{
-	position: relative;
-	width: var(--loaderSize);
-	height: var(--loaderSize);
+.loadContainer {
+    position: relative;
+    width: var(--loaderSize);
+    height: var(--loaderSize);
 }
 
-.loadInner{
-	width: 82.5%;
-	height: 85%;
-	border-radius: 100%;
-	position: absolute;
-	top: 7.5%;
-	left: 7.25%;
+.loadInner {
+    width: 82.5%;
+    height: 85%;
+    border-radius: 100%;
+    position: absolute;
+    top: 7.5%;
+    left: 7.25%;
 }
 
-.loadCircle{
-	width: 100%;
-	height: 100%;
-	position: absolute;
+.loadCircle {
+    width: 100%;
+    height: 100%;
+    position: absolute;
 }
 
-.loadCircle > .loadCircleInner{
-	width: 100%;
-	height: 100%;
-	border-radius: 100%;
-	border: var(--border-thickness) solid rgba(var(--loader-base-color),0.7);
-	border-right: none;
-	border-top: none;
-	background-clip: padding;
-	box-shadow: inset 0px 0px 10px rgba(var(--loader-base-color),0.15);
+.loadCircle>.loadCircleInner {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    border: var(--border-thickness) solid rgba(var(--loader-base-color), 0.7);
+    border-right: none;
+    border-top: none;
+    background-clip: padding;
+    box-shadow: inset 0px 0px 10px rgba(var(--loader-base-color), 0.15);
 }
-.loadCircle:nth-of-type(0){
-	transform: rotate(0deg);
-		-o-transform: rotate(0deg);
-		-ms-transform: rotate(0deg);
-		-webkit-transform: rotate(0deg);
-		-moz-transform: rotate(0deg);
+
+.loadCircle:nth-of-type(0) {
+    transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
 }
-.loadCircle:nth-of-type(0) .loadCircleInner{
-	animation: loaderSpin var(--loaderSpeed) infinite linear;
-		-o-animation: loaderSpin var(--loaderSpeed) infinite linear;
-		-ms-animation: loaderSpin var(--loaderSpeed) infinite linear;
-		-webkit-animation: loaderSpin var(--loaderSpeed) infinite linear;
-		-moz-animation: loaderSpin var(--loaderSpeed) infinite linear;
+
+.loadCircle:nth-of-type(0) .loadCircleInner {
+    animation: loaderSpin var(--loaderSpeed) infinite linear;
+    -o-animation: loaderSpin var(--loaderSpeed) infinite linear;
+    -ms-animation: loaderSpin var(--loaderSpeed) infinite linear;
+    -webkit-animation: loaderSpin var(--loaderSpeed) infinite linear;
+    -moz-animation: loaderSpin var(--loaderSpeed) infinite linear;
 }
-.loadCircle:nth-of-type(1){
-	transform: rotate(70deg);
-		-o-transform: rotate(70deg);
-		-ms-transform: rotate(70deg);
-		-webkit-transform: rotate(70deg);
-		-moz-transform: rotate(70deg);
+
+.loadCircle:nth-of-type(1) {
+    transform: rotate(70deg);
+    -o-transform: rotate(70deg);
+    -ms-transform: rotate(70deg);
+    -webkit-transform: rotate(70deg);
+    -moz-transform: rotate(70deg);
 }
-.loadCircle:nth-of-type(1) .loadCircleInner{
-	animation: loaderSpin var(--loaderSpeed) infinite linear;
-		-o-animation: loaderSpin var(--loaderSpeed) infinite linear;
-		-ms-animation: loaderSpin var(--loaderSpeed) infinite linear;
-		-webkit-animation: loaderSpin var(--loaderSpeed) infinite linear;
-		-moz-animation: loaderSpin var(--loaderSpeed) infinite linear;
+
+.loadCircle:nth-of-type(1) .loadCircleInner {
+    animation: loaderSpin var(--loaderSpeed) infinite linear;
+    -o-animation: loaderSpin var(--loaderSpeed) infinite linear;
+    -ms-animation: loaderSpin var(--loaderSpeed) infinite linear;
+    -webkit-animation: loaderSpin var(--loaderSpeed) infinite linear;
+    -moz-animation: loaderSpin var(--loaderSpeed) infinite linear;
 }
-.loadCircle:nth-of-type(2){
-	transform: rotate(140deg);
-		-o-transform: rotate(140deg);
-		-ms-transform: rotate(140deg);
-		-webkit-transform: rotate(140deg);
-		-moz-transform: rotate(140deg);
+
+.loadCircle:nth-of-type(2) {
+    transform: rotate(140deg);
+    -o-transform: rotate(140deg);
+    -ms-transform: rotate(140deg);
+    -webkit-transform: rotate(140deg);
+    -moz-transform: rotate(140deg);
 }
-.loadCircle:nth-of-type(2) .loadCircleInner{
-	animation: loaderSpin var(--loaderSpeed) infinite linear;
-		-o-animation: loaderSpin var(--loaderSpeed) infinite linear;
-		-ms-animation: loaderSpin var(--loaderSpeed) infinite linear;
-		-webkit-animation: loaderSpin var(--loaderSpeed) infinite linear;
-		-moz-animation: loaderSpin var(--loaderSpeed) infinite linear;
+
+.loadCircle:nth-of-type(2) .loadCircleInner {
+    animation: loaderSpin var(--loaderSpeed) infinite linear;
+    -o-animation: loaderSpin var(--loaderSpeed) infinite linear;
+    -ms-animation: loaderSpin var(--loaderSpeed) infinite linear;
+    -webkit-animation: loaderSpin var(--loaderSpeed) infinite linear;
+    -moz-animation: loaderSpin var(--loaderSpeed) infinite linear;
 }
-.loadInner{
-	animation: loaderSpin (var(--loaderSpeed)*2.5) infinite linear;
-		-o-animation: loaderSpin (var(--loaderSpeed)*2.5) infinite linear;
-		-ms-animation: loaderSpin (var(--loaderSpeed)*2.5) infinite linear;
-		-webkit-animation: loaderSpin (var(--loaderSpeed)*2.5) infinite linear;
-		-moz-animation: loaderSpin (var(--loaderSpeed)*2.5) infinite linear;
+
+.loadInner {
+    animation: loaderSpin (var(--loaderSpeed)*2.5) infinite linear;
+    -o-animation: loaderSpin (var(--loaderSpeed)*2.5) infinite linear;
+    -ms-animation: loaderSpin (var(--loaderSpeed)*2.5) infinite linear;
+    -webkit-animation: loaderSpin (var(--loaderSpeed)*2.5) infinite linear;
+    -moz-animation: loaderSpin (var(--loaderSpeed)*2.5) infinite linear;
 }
-@keyframes loaderSpin{
-	from{
-		transform: rotate(0deg);
-	}
-	to{
-		transform: rotate(360deg);
-	}
+
+@keyframes loaderSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
-@-o-keyframes loaderSpin{
-	from{
-		-o-transform: rotate(0deg);
-	}
-	to{
-		-o-transform: rotate(360deg);
-	}
+
+@-o-keyframes loaderSpin {
+    from {
+        -o-transform: rotate(0deg);
+    }
+
+    to {
+        -o-transform: rotate(360deg);
+    }
 }
-@-ms-keyframes loaderSpin{
-	from{
-		-ms-transform: rotate(0deg);
-	}
-	to{
-		-ms-transform: rotate(360deg);
-	}
+
+@-ms-keyframes loaderSpin {
+    from {
+        -ms-transform: rotate(0deg);
+    }
+
+    to {
+        -ms-transform: rotate(360deg);
+    }
 }
-@-webkit-keyframes loaderSpin{
-	from{
-		-webkit-transform: rotate(0deg);
-	}
-	to{
-		-webkit-transform: rotate(360deg);
-	}
+
+@-webkit-keyframes loaderSpin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
 }
-@-moz-keyframes loaderSpin{
-	from{
-		-moz-transform: rotate(0deg);
-	}
-	to{
-		-moz-transform: rotate(360deg);
-	}
+
+@-moz-keyframes loaderSpin {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+
+    to {
+        -moz-transform: rotate(360deg);
+    }
 }
