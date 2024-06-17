@@ -38,7 +38,7 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(()=>{
             document.querySelector('.loader-container').classList.add("hidden");
             resolve()
-        },25)
+        },2500)
     })
     const chat_window = document.querySelector('.img_user')
     const promise2 = new Promise((resolve) => {
@@ -116,16 +116,16 @@ window.addEventListener('DOMContentLoaded', () => {
     function moveToMessage(picture, cart) {
         let picture_pos = picture.getBoundingClientRect();
         let cart_pos = cart.getBoundingClientRect();
-
+        
         picture.style.position = "fixed";
         picture.style.left = picture_pos['x'] + "px";
         picture.style.top = picture_pos['y'] + "px";
         picture.style.zIndex = 32767;
 
-        let start_x = picture_pos['x'] + 0.2 * picture_pos['width'];
+        let start_x = picture_pos['x'] + (window.innerWidth < 962? 0.25 : 0.36) * picture_pos['width'];
         let start_y = picture_pos['y'] + 0.5 * picture_pos['height'];
 
-        let delta_x = (cart_pos['x'] + 0.5 * cart_pos['width']) - start_x;
+        let delta_x = (cart_pos['x'] + 0.3 * cart_pos['width']) - start_x;
         let delta_y = (cart_pos['y'] + 1.5 * cart_pos['height']) - start_y;
         
         document.body.appendChild(picture);
@@ -143,6 +143,7 @@ window.addEventListener('DOMContentLoaded', () => {
             picture.style.width = '50px';
             picture.style.height = '50px';
             picture.style.display = 'block';
+            picture.style.padding = '0';
             document.querySelector('.expert_img').style.width = '50px'
             document.querySelector('.expert_img').style.height = '50px'
             document.querySelector('.chat_typing').style.display = 'none'

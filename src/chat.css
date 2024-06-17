@@ -582,7 +582,8 @@
 
 #expert_block {
     position: fixed;
-    left: calc(40%);
+    width: 100vw;
+    padding: 0 30vw;
     top: 40%;
     -webkit-transition: 2s;
     -o-transition: 2s;
@@ -604,19 +605,19 @@
 }
 @media (max-width: 640px){
     #expert_block {
-        left: 5%;
+       
        
     }
 }
 @media (max-width: 380px){
     #expert_block {
-        left: 1%;
+      
        
     }
 }
 @media (max-width: 962px) {
     #expert_block {
-        left: calc(15%); 
+        padding: 0 12vw;
     }
 
 }
@@ -707,6 +708,12 @@
     .loading-wave {
         left: 50px;
         bottom: 90px;
+    }
+}
+@media (max-width: 370px) {
+    .loading-wave {
+        left: 50px;
+        bottom: 75px;
     }
 }
 
