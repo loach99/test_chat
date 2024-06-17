@@ -21,7 +21,7 @@
     width: calc(100% - 80px);
     resize: vertical;
     border-radius: 15px;
-    padding: 15px;
+    padding-left: 15px;
     outline: none;
     background-color: rgb(99 90 114);
     color: #fff;

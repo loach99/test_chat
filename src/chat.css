@@ -6,6 +6,7 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     font-family: "Manrope", sans-serif;
+    font-weight: 500;
 }
 
 :root {
@@ -122,7 +123,7 @@
 
 @media (max-width: 962px) {
     .chat_header-expert-name>div>span {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .chat_header {
@@ -334,7 +335,7 @@
 }
 
 .footer {
-    min-height: 70px;
+    min-height: 75px;
     margin: 0 15px 10px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -385,9 +386,7 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+    align-items: flex-start;
     padding: 5px;
     -webkit-box-flex: 0;
     -ms-flex: 0 0 70px;
@@ -397,6 +396,7 @@
     /* color: #ffffff; */
     color: #ffffff;
     background-color: #6c637b;
+
     /* box-shadow: -1px 12px 9px -1px rgba(47, 47, 47, 0.75);
     -webkit-box-shadow: -1px 12px 9px -1px rgba(47, 47, 47, 0.75);
     -moz-box-shadow: -1px 12px 9px -1px rgba(47, 47, 47, 0.75); */
@@ -406,6 +406,7 @@
     margin-left: 50%;
     margin-bottom: 30px;
     padding-left: 25px;
+    align-items: center;
 }
 
 .my_message:empty {
@@ -434,11 +435,14 @@
 }
 @media (max-width: 380px){
     .my_message {
-        margin: 0 0 5px 40%;
+        margin: 0 0 5px 35%;
+        font-size: 14px;
+
     }
 
     .message {
-        width: 60%;
+        width: 65%;
+        
     }
     .chat_message-window {
         padding: 0px 15px 20px 15px;
@@ -569,6 +573,12 @@
 .chat_typing>p {
     color: #ffffff;
 }
+@media (max-width: 380px){
+    .chat_typing>p {
+        font-size: 14px;
+    }
+}
+
 
 #expert_block {
     position: fixed;
@@ -636,7 +646,17 @@
 
 .chat_typing {
     margin-left: 15px;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
+
+@media (max-width: 380px){
+    .chat_typing{
+        font-size: 14px;
+    }
+}
+
 
 .hamburger .line {
     width: 50px;
