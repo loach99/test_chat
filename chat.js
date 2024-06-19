@@ -89,8 +89,8 @@ window.addEventListener('DOMContentLoaded', () => {
             picture.style.left = picture_pos['x'] + "px";
             picture.style.top = picture_pos['y'] + "px";
             picture.style.zIndex = 32767;
-            picture.style.color = 'rgb(167 107 212 / 90%)'
-            picture.style.backgroundColor = 'rgb(175, 175, 175)';
+            picture.style.color = '#fff'
+            picture.style.backgroundColor = 'rgb(167 107 212 / 90%)';
             picture.style.padding = '5px 8px';
             picture.style.borderRadius = '25px'
             let start_x = picture_pos['x'] + 0.1 * picture_pos['width'];
@@ -104,8 +104,8 @@ window.addEventListener('DOMContentLoaded', () => {
             picture.style.transform = "translateX(" + delta_x + "px)";
             picture.style.transform += "translateY(" + delta_y + "px)";
             picture.style.transition = "1s";
-            picture.style.color = 'rgb(167 107 212 / 90%)'
-            picture.style.backgroundColor = 'rgb(175, 175, 175)';
+            picture.style.color = '#fff'
+            picture.style.backgroundColor = 'rgb(167 107 212 / 90%)';
             picture.style.padding = '5px 8px';
             picture.style.borderRadius = '25px'
         }, 1000)
@@ -115,7 +115,7 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             expertNamePlace.appendChild(picture);
             picture.style.position = "static";
-            picture.style.color = 'rgb(167 107 212 / 90%)'
+            picture.style.color = '#fff'
         }, 2000)
 
     }

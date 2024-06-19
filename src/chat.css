@@ -633,8 +633,8 @@
     height: 200px !important;
 }
 .expert_name{
-    color: rgb(167 107 212 / 90%);
-    background-color: rgb(175, 175, 175);
+    color: #fff;
+    background-color: rgb(167 107 212 / 90%);
     border-radius: 25px;
     padding: 5px 8px;
     font-weight: 700;
@@ -717,7 +717,7 @@
         bottom: 90px;
     }
 }
-@media (max-width: 370px) {
+@media (max-width: 380px) {
     .loading-wave {
         left: 20px;
         bottom: 75px;
@@ -728,7 +728,8 @@
     width: 5px;
     height: 5px;
     margin: 0 3px;
-    background-color: rgba(78, 99, 201, 0.9);
+    background-color: rgb(167 107 212 / 90%);
+    border: 1px solid #ffffff;
     border-radius: 5px;
     -webkit-animation: loading-wave-animation 1s ease-in-out infinite;
     animation: loading-wave-animation 1s ease-in-out infinite;
