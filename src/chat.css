@@ -729,7 +729,7 @@
     height: 5px;
     margin: 0 3px;
     background-color: rgb(167 107 212 / 90%);
-    border: 1px solid #000000;
+    border: 1px solid #0000004f;
     border-radius: 5px;
     -webkit-animation: loading-wave-animation 1s ease-in-out infinite;
     animation: loading-wave-animation 1s ease-in-out infinite;
