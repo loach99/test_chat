@@ -47,17 +47,17 @@ window.addEventListener('DOMContentLoaded', () => {
                 animateBlock(data.url);
                 return data
             })
-            // .then((data) => {
-            //     animateTyping(data.title.charAt(0).toUpperCase() + data.title.slice(1))
-            //     setTimeout(() => {
-            //         moveToMessage(document.querySelector('.expert_img'), chatImgUser);
-            //     }, 2000)
-            // })
-            // .then(() => {
-            //     setTimeout(() => {
-            //         moveToChatHeader(expertName, expertNamePlace);
-            //     }, 1500)
-            // })
+            .then((data) => {
+                animateTyping(data.title.charAt(0).toUpperCase() + data.title.slice(1))
+                setTimeout(() => {
+                    moveToMessage(document.querySelector('.expert_img'), chatImgUser);
+                }, 2000)
+            })
+            .then(() => {
+                setTimeout(() => {
+                    moveToChatHeader(expertName, expertNamePlace);
+                }, 1500)
+            })
     })
 
     function animateTyping(message) {
