@@ -582,12 +582,11 @@
 
 #expert_block {
     position: fixed;
-    width: 100vw;
-    padding: 0 30vw;
     top: 40%;
-    -webkit-transition: 2s;
-    -o-transition: 2s;
-    transition: 2s;
+    left: 50%;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
     opacity: 0;
     color: #FFFBFE;
     border-radius: 50%;
@@ -617,9 +616,8 @@
 }
 @media (max-width: 962px) {
     #expert_block {
-        padding: 0 12vw;
+        
     }
-
 }
 
 .expert_name-place {
@@ -631,9 +629,14 @@
     font-size: 20px;
     font-weight: 700;
 }
-
-#expert_block>span:nth-child(2) {
+.img_expert-wrap{
+    height: 100px !important;
+}
+.expert_name{
     color: rgb(167 107 212 / 90%);
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    padding: 15px;
 }
 .animated_message{
     width: 100%;

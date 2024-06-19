@@ -10,56 +10,53 @@ window.addEventListener('DOMContentLoaded', () => {
     const otherMessage = document.querySelector(".other_message");
     const messageForm = document.querySelector(".footer_form");
 
-    function animateBlock(image,text) {
+    function animateBlock(image, text) {
         let block = document.getElementById('expert_block');
         let img = document.createElement('img');
         let div = document.createElement('div');
-        let chatDiv = document.createElement('div');
-        chatDiv.classList.add('chat_typing');
-        div.classList.add('test_box','message','other_message','show','animated_message')
         img.setAttribute('src', image);
-        img.classList.add('expert_img')
-        chatDiv.innerHTML = `${text}`
+        div.classList.add('img_expert-wrap')
         div.insertAdjacentElement('afterbegin', img)
-        div.insertAdjacentElement('beforeend',chatDiv)
+        img.classList.add('expert_img')
         block.insertAdjacentElement('afterbegin', div)
-       
-        console.log(div)
         block.classList.add('show-block');
     }
 
     const promise = new Promise((resolve) => {
-        // setTimeout(() => {
-        //     document.querySelector('.spiner_wrap').classList.add("rotate");
-        // }, 1000)
+
         setTimeout(() => {
             document.querySelector('.spinner-text').innerHTML = `Специалист найден. Подключение...`
         }, 1500)
-        setTimeout(()=>{
+        setTimeout(() => {
             document.querySelector('.loader-container').classList.add("hidden");
             resolve()
-        },2500)
+        }, 25)
     })
-    const chat_window = document.querySelector('.img_user')
+
     const promise2 = new Promise((resolve) => {
         //здесь запрос на сервер
         fetch(`https://jsonplaceholder.typicode.com/photos/${Math.floor(Math.random() * 1000)}`)
             .then(response => response.json())
             .then(response => resolve(response))
+        
     })
     promise.then(() => {
-       
+
         promise2
             .then((data) => {
-                animateBlock(data.url, data.title.charAt(0).toUpperCase() + data.title.slice(1));
+                animateBlock(data.url);
                 return data
             })
             .then((data) => {
                 animateTyping(data.title.charAt(0).toUpperCase() + data.title.slice(1))
                 setTimeout(() => {
-                    moveToMessage(expertBlock, chat_window)
-                    moveToChatHeader(expertName, expertNamePlace)
+                    moveToMessage(document.querySelector('.expert_img'), chatImgUser);
                 }, 2000)
+            })
+            .then(() => {
+                setTimeout(() => {
+                    moveToChatHeader(expertName, expertNamePlace);
+                }, 1500)
             })
     })
 
@@ -70,7 +67,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 otherMessage.children[1].children[0].innerHTML = `${message}`;
                 otherMessage.classList.add('show');
                 resolve()
-            }, 3000)
+            }, 2000)
         })
         promise.then(() => {
             setTimeout(() => {
@@ -79,7 +76,6 @@ window.addEventListener('DOMContentLoaded', () => {
         })
         promise.then(() => {
             setTimeout(() => {
-               
                 document.querySelector('.form_textarea').removeAttribute('disabled');
             }, 4000)
         })
@@ -87,55 +83,66 @@ window.addEventListener('DOMContentLoaded', () => {
     function moveToChatHeader(picture, cart) {
         let picture_pos = picture.getBoundingClientRect();
         let cart_pos = cart.getBoundingClientRect();
+        setTimeout(() => {
+            picture.style.position = "fixed";
+            picture.style.left = picture_pos['x'] + "px";
+            picture.style.top = picture_pos['y'] + "px";
+            picture.style.zIndex = 32767;
+            picture.style.color = 'rgb(167 107 212 / 90%)'
+            picture.style.backgroundColor = 'white';
+            picture.style.padding = '8px';
+            picture.style.borderRadius = '25px'
+            let start_x = picture_pos['x'] + 0.1 * picture_pos['width'];
+            let start_y = picture_pos['y'] + 0.35 * picture_pos['height'];
 
-        picture.style.position = "fixed";
-        picture.style.left = picture_pos['x'] + "px";
-        picture.style.top = picture_pos['y'] + "px";
-        picture.style.zIndex = 32767;
-        picture.style.color = 'rgb(167 107 212 / 90%)'
-        let start_x = picture_pos['x'] + 0.5 * picture_pos['width'];
-        let start_y = picture_pos['y'] + 0.4 * picture_pos['height'];
+            let delta_x = (cart_pos['x'] + 0.5 * cart_pos['width']) - start_x;
+            let delta_y = (cart_pos['y'] + 0.5 * cart_pos['height']) - start_y;
 
-        let delta_x = (cart_pos['x'] + 0.5 * cart_pos['width']) - start_x;
-        let delta_y = (cart_pos['y'] + 0.5 * cart_pos['height']) - start_y;
+            document.body.appendChild(picture);
+            void picture.offsetWidth;
+            picture.style.transform = "translateX(" + delta_x + "px)";
+            picture.style.transform += "translateY(" + delta_y + "px)";
+            picture.style.transition = "1s";
+            picture.style.color = 'rgb(167 107 212 / 90%)'
+            picture.style.backgroundColor = 'white';
+            picture.style.padding = '8px';
+            picture.style.borderRadius = '25px'
+        }, 1000)
 
-        document.body.appendChild(picture);
-        void picture.offsetWidth;
-        picture.style.transform = "translateX(" + delta_x + "px)";
-        picture.style.transform += "translateY(" + delta_y + "px)";
-        picture.style.transition = "1s";
-        picture.style.color = 'rgb(167 107 212 / 90%)'
         document.querySelector('.expert_title').classList.add('hidden')
+
+
         setTimeout(() => {
             expertNamePlace.appendChild(picture);
             picture.style.position = "static";
             picture.style.color = 'rgb(167 107 212 / 90%)'
-        }, 1000)
+        }, 2000)
 
     }
     function moveToMessage(picture, cart) {
         let picture_pos = picture.getBoundingClientRect();
         let cart_pos = cart.getBoundingClientRect();
-        
+
         picture.style.position = "fixed";
         picture.style.left = picture_pos['x'] + "px";
         picture.style.top = picture_pos['y'] + "px";
         picture.style.zIndex = 32767;
 
-        let start_x = picture_pos['x'] + (window.innerWidth < 962? 0.25 : 0.36) * picture_pos['width'];
+        let start_x = picture_pos['x'] + 0.5 * picture_pos['width'];
         let start_y = picture_pos['y'] + 0.5 * picture_pos['height'];
 
-        let delta_x = (cart_pos['x'] + 0.3 * cart_pos['width']) - start_x;
-        let delta_y = (cart_pos['y'] + 1.5 * cart_pos['height']) - start_y;
-        
+        let delta_x = (cart_pos['x'] + 0.5 * cart_pos['width']) - start_x;
+        let delta_y = (cart_pos['y'] + 0.5 * cart_pos['height']) - start_y;
+
         document.body.appendChild(picture);
 
         void picture.offsetWidth;
         picture.style.transform = "translateX(" + delta_x + "px)";
         picture.style.transform += "translateY(" + delta_y + "px)";
-        picture.style.transform += "scale(0.75)"; 
+        picture.style.transform += "scale(0.5)";
         picture.style.transition = "1s";
-   
+
+
         setTimeout(() => {
             document.querySelector('.img_user').appendChild(picture);
             picture.style.position = "static";
