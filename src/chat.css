@@ -616,7 +616,7 @@
 }
 @media (max-width: 962px) {
     #expert_block {
-        left: calc(50% - 150px);
+        left: calc(50% - 175px);
     }
 }
 
