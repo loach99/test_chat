@@ -113,7 +113,7 @@
 }
 
 .chat_header-expert-name>div {
-    background-color: #2f2f2f;
+    /* background-color: #2f2f2f; */
     padding: 10px;
     border-radius: 15px;
     color: #ccc;
@@ -582,8 +582,8 @@
 
 #expert_block {
     position: fixed;
-    top: 40%;
-    left: 50%;
+    top: 30%;
+    left: calc(50% - 50px);
     -webkit-transition: .5s;
     -o-transition: .5s;
     transition: .5s;
@@ -600,7 +600,7 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    gap: 5px;
+    gap: 25px;
 }
 @media (max-width: 640px){
     #expert_block {
@@ -616,7 +616,7 @@
 }
 @media (max-width: 962px) {
     #expert_block {
-        
+        left: calc(50% - 150px);
     }
 }
 
@@ -630,16 +630,20 @@
     font-weight: 700;
 }
 .img_expert-wrap{
-    height: 100px !important;
+    height: 200px !important;
 }
 .expert_name{
     color: rgb(167 107 212 / 90%);
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(175, 175, 175);
     border-radius: 25px;
-    padding: 15px;
+    padding: 5px 8px;
+    font-weight: 700;
 }
 .animated_message{
     width: 100%;
+}
+.chat_header-exp-desc{
+    font-weight: 700;
 }
 .burger>svg {
     width: 32px;
@@ -654,8 +658,8 @@
 }
 
 .expert_img {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
 }
 
@@ -709,13 +713,13 @@
 
 @media (max-width: 962px) {
     .loading-wave {
-        left: 50px;
+        left: 20px;
         bottom: 90px;
     }
 }
 @media (max-width: 370px) {
     .loading-wave {
-        left: 50px;
+        left: 20px;
         bottom: 75px;
     }
 }

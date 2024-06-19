@@ -64,7 +64,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const promise = new Promise((resolve, reject) => {
             setTimeout(() => {
                 document.querySelector('.footer').style.opacity = '1';
-                otherMessage.children[1].children[0].innerHTML = `${message}`;
+                
                 otherMessage.classList.add('show');
                 resolve()
             }, 2000)
@@ -76,6 +76,7 @@ window.addEventListener('DOMContentLoaded', () => {
         })
         promise.then(() => {
             setTimeout(() => {
+                otherMessage.children[1].children[0].innerHTML = `${message}`;
                 document.querySelector('.form_textarea').removeAttribute('disabled');
             }, 4000)
         })
@@ -89,8 +90,8 @@ window.addEventListener('DOMContentLoaded', () => {
             picture.style.top = picture_pos['y'] + "px";
             picture.style.zIndex = 32767;
             picture.style.color = 'rgb(167 107 212 / 90%)'
-            picture.style.backgroundColor = 'white';
-            picture.style.padding = '8px';
+            picture.style.backgroundColor = 'rgb(175, 175, 175)';
+            picture.style.padding = '5px 8px';
             picture.style.borderRadius = '25px'
             let start_x = picture_pos['x'] + 0.1 * picture_pos['width'];
             let start_y = picture_pos['y'] + 0.35 * picture_pos['height'];
@@ -104,13 +105,12 @@ window.addEventListener('DOMContentLoaded', () => {
             picture.style.transform += "translateY(" + delta_y + "px)";
             picture.style.transition = "1s";
             picture.style.color = 'rgb(167 107 212 / 90%)'
-            picture.style.backgroundColor = 'white';
-            picture.style.padding = '8px';
+            picture.style.backgroundColor = 'rgb(175, 175, 175)';
+            picture.style.padding = '5px 8px';
             picture.style.borderRadius = '25px'
         }, 1000)
 
-        document.querySelector('.expert_title').classList.add('hidden')
-
+        document.querySelector('.expert_title').classList.add('hidden');
 
         setTimeout(() => {
             expertNamePlace.appendChild(picture);
@@ -139,7 +139,7 @@ window.addEventListener('DOMContentLoaded', () => {
         void picture.offsetWidth;
         picture.style.transform = "translateX(" + delta_x + "px)";
         picture.style.transform += "translateY(" + delta_y + "px)";
-        picture.style.transform += "scale(0.5)";
+        picture.style.transform += "scale(0.25)";
         picture.style.transition = "1s";
 
 
@@ -153,7 +153,6 @@ window.addEventListener('DOMContentLoaded', () => {
             picture.style.padding = '0';
             document.querySelector('.expert_img').style.width = '50px'
             document.querySelector('.expert_img').style.height = '50px'
-            document.querySelector('.chat_typing').style.display = 'none'
         }, 1000)
 
     }
