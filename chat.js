@@ -1,6 +1,8 @@
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
-
+const cat = new Image();
+cat.src = './img/5eXXf4mf6iE.jpg'
+console.log(cat)
 window.addEventListener('DOMContentLoaded', () => {
 
     const expertName = document.querySelector(".expert_name");
@@ -10,7 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const otherMessage = document.querySelector(".other_message");
     const messageForm = document.querySelector(".footer_form");
 
-    function animateBlock(image, text) {
+    function animateBlock(image) {
         let block = document.getElementById('expert_block');
         let img = document.createElement('img');
         let div = document.createElement('div');
@@ -38,13 +40,14 @@ window.addEventListener('DOMContentLoaded', () => {
         fetch(`https://jsonplaceholder.typicode.com/photos/${Math.floor(Math.random() * 1000)}`)
             .then(response => response.json())
             .then(response => resolve(response))
-        
+
     })
     promise.then(() => {
 
         promise2
             .then((data) => {
                 animateBlock(data.url);
+       
                 return data
             })
             .then((data) => {
@@ -64,8 +67,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const promise = new Promise((resolve, reject) => {
             setTimeout(() => {
                 document.querySelector('.footer').style.opacity = '1';
-                
-                otherMessage.classList.add('show');
+                document.querySelector('.message_wrapper').classList.add('show');
                 resolve()
             }, 2000)
         })
@@ -76,7 +78,7 @@ window.addEventListener('DOMContentLoaded', () => {
         })
         promise.then(() => {
             setTimeout(() => {
-                otherMessage.children[1].children[0].innerHTML = `${message}`;
+                otherMessage.children[0].children[0].innerHTML = `${message}`;
                 document.querySelector('.form_textarea').removeAttribute('disabled');
             }, 4000)
         })
@@ -93,7 +95,7 @@ window.addEventListener('DOMContentLoaded', () => {
             picture.style.backgroundColor = 'rgb(167 107 212 / 90%)';
             picture.style.padding = '5px 8px';
             picture.style.borderRadius = '25px'
-            let start_x = picture_pos['x'] + 0.1 * picture_pos['width'];
+            let start_x = picture_pos['x'] - 0.1 * picture_pos['width'];
             let start_y = picture_pos['y'] + 0.35 * picture_pos['height'];
 
             let delta_x = (cart_pos['x'] + 0.5 * cart_pos['width']) - start_x;
@@ -117,7 +119,7 @@ window.addEventListener('DOMContentLoaded', () => {
             expertNamePlace.appendChild(picture);
             picture.style.position = "static";
             picture.style.color = '#fff';
-             picture.style.fontSize = '14px'
+            picture.style.fontSize = '14px'
         }, 2000)
 
     }
@@ -164,21 +166,25 @@ window.addEventListener('DOMContentLoaded', () => {
             return
         }
         if (type === 'my_message') {
-            div.classList.add('test_box')
-            div.classList.add('message')
-            div.classList.add('my_message')
+            div.classList.add('test_box');
+            div.classList.add('message');
+            div.classList.add('my_message');
+            div.classList.add('right');
             div.textContent = text;
             document.querySelector('.chat_message-window').insertAdjacentElement('afterbegin', div);
         } else if (type === 'other_message') {
 
-            const testBoxDiv = document.createElement('div');
-            testBoxDiv.classList.add('test_box', 'message', 'other_message', 'show');
+            const testBoxDiv = document.createElement('div');//текст сообщения
+
+            const messageWrapper = document.createElement('div');//обертка всего сообщения
+            messageWrapper.classList.add('message_wrapper','show');
+            testBoxDiv.classList.add('test_box', 'message', 'other_message','left');
             let firstExpertImg = document.querySelector('.expert_img');
 
             // Создаем первый дочерний div с классом "img_user"
-            const imgUserDiv = document.createElement('div');
+            const imgUserDiv = document.createElement('div');//div с изображением
             imgUserDiv.classList.add('img_user');
-            testBoxDiv.appendChild(imgUserDiv);
+            messageWrapper.appendChild(imgUserDiv);
             const expertImg = document.createElement('img');
             expertImg.classList.add('expert_img');
             expertImg.style.width = '50px'
@@ -186,13 +192,14 @@ window.addEventListener('DOMContentLoaded', () => {
             // устанавлтваем атрибут из изображения полученного с бэка 
             expertImg.setAttribute('src', firstExpertImg.getAttribute('src'));
             imgUserDiv.appendChild(expertImg);
+            messageWrapper.appendChild(testBoxDiv)
 
             // Создаем второй дочерний div с классом "chat_typing"
             const chatTypingDiv = document.createElement('div');
             chatTypingDiv.classList.add('chat_typing');
             testBoxDiv.appendChild(chatTypingDiv);
             chatTypingDiv.textContent = text;
-            document.querySelector('.chat_message-window').insertAdjacentElement('afterbegin', testBoxDiv);
+            document.querySelector('.chat_message-window').insertAdjacentElement('afterbegin', messageWrapper);
         }
     }
     function debounce(fn, delay) {

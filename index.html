@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>test-chat</title>
-    <link rel="stylesheet" href="./src/chat.css">
-    <link rel="stylesheet" href="./src/form.css">
+    <link rel="stylesheet" href="./src/chat.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="./src/form.css" crossorigin="anonymous">
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" crossorigin="anonymous"/>
 </head>
 
 <div class="loader-container">
@@ -246,14 +246,17 @@
 
             <div class="chat_view_window">
                 <div class="chat_message-window scroll_bar">
-                    <div class="test_box message other_message">
+                    <div class="message_wrapper">
                         <div class="img_user">
                         </div>
-                        <div class="chat_typing">
-                            <p>
-                            </p>
+                        <div class="test_box message other_message left">
+                            <div class="chat_typing">
+                                <p>
+                                </p>
+                            </div>
                         </div>
                     </div>
+                   
                 </div>
 
                 <div class="footer">
