@@ -108,6 +108,7 @@ window.addEventListener('DOMContentLoaded', () => {
             picture.style.backgroundColor = 'rgb(167 107 212 / 90%)';
             picture.style.padding = '5px 8px';
             picture.style.borderRadius = '25px'
+            picture.style.fontSize = '14px'
         }, 1000)
 
         document.querySelector('.expert_title').classList.add('hidden');
@@ -115,7 +116,8 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             expertNamePlace.appendChild(picture);
             picture.style.position = "static";
-            picture.style.color = '#fff'
+            picture.style.color = '#fff';
+             picture.style.fontSize = '14px'
         }, 2000)
 
     }
