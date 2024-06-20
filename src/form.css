@@ -1,3 +1,4 @@
+
 .footer_form-wrapp{
     width: 100%;
     margin: 5px;
@@ -26,7 +27,33 @@
     background-color: rgb(99 90 114);
     color: #fff;
     border: 3px solid transparent;
+    -webkit-transition: border-color 0.2s;
+    -o-transition: border-color 0.2s;
     transition: border-color 0.2s; 
+}
+
+.form_textarea::-webkit-input-placeholder{
+    color: #ccc;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.form_textarea::-moz-placeholder{
+    color: #ccc;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.form_textarea:-ms-input-placeholder{
+    color: #ccc;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.form_textarea::-ms-input-placeholder{
+    color: #ccc;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .form_textarea::placeholder{
@@ -35,6 +62,26 @@
     font-weight: 500;
 }
 @media (max-width: 380px){
+    .form_textarea::-webkit-input-placeholder{
+        color: #ccc;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .form_textarea::-moz-placeholder{
+        color: #ccc;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .form_textarea:-ms-input-placeholder{
+        color: #ccc;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .form_textarea::-ms-input-placeholder{
+        color: #ccc;
+        font-size: 14px;
+        font-weight: 500;
+    }
     .form_textarea::placeholder{
         color: #ccc;
         font-size: 14px;
@@ -59,9 +106,15 @@
 }
 
 .form_button{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     cursor: pointer;
     font-size: 20px;
     border: none; 
