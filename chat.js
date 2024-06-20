@@ -162,6 +162,8 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     function addMessage(text, type) {
         let div = document.createElement('div');
+        let p = document.createElement('div')
+        p.classList.add('chat_typing')
         if (!type) {
             return
         }
@@ -170,7 +172,8 @@ window.addEventListener('DOMContentLoaded', () => {
             div.classList.add('message');
             div.classList.add('my_message');
             div.classList.add('right');
-            div.textContent = text;
+            div.appendChild(p)
+            p.textContent = text;
             document.querySelector('.chat_message-window').insertAdjacentElement('afterbegin', div);
         } else if (type === 'other_message') {
 

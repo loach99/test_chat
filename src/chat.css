@@ -410,7 +410,7 @@
     color: #ffffff;
     background-color: #6c637b;
     word-break: break-all;
-    min-height: 56px;
+   
     --r: 1em;  /* the radius */
     --t: 1.5em; /* the size of the tail */
 
@@ -449,6 +449,7 @@
 .other_message {
     flex-basis: auto;
     position: relative;
+    min-height: 56px;
 }
 
 @media (max-width: 962px) {
@@ -702,7 +703,6 @@
 }
 
 .chat_typing {
-    margin-left: 15px;
     height: 100%;
     display: flex;
     align-items: center;
