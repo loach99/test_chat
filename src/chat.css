@@ -7,6 +7,7 @@
     box-sizing: border-box;
     font-family: "Manrope", sans-serif;
     font-weight: 500;
+    font-size: 16px;
 }
 
 :root {
@@ -123,7 +124,7 @@
 
 @media (max-width: 962px) {
     .chat_header-expert-name>div>span {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .chat_header {
@@ -177,6 +178,13 @@
     color: #ccc;
     margin-left: 30px;
     font-weight: 700;
+}
+
+@media (max-width: 380px) {
+
+    .user_list-header>div>span {
+        font-size: 14px;
+    }
 }
 
 .user_list-header>div>svg {
@@ -325,7 +333,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; */
-    background: rgb(151,53,161);
+    background: rgb(151, 53, 161);
     background: linear-gradient(148deg, rgb(197 123 216 / 80%) 7%, rgb(195 166 225 / 90%) 32%, rgba(210, 137, 212, 0.8) 57%, rgba(223, 152, 211, 0.8) 77%);
 }
 
@@ -602,18 +610,15 @@
     align-items: center;
     gap: 25px;
 }
-@media (max-width: 640px){
-    #expert_block {
-       
-       
-    }
+
+@media (max-width: 640px) {
+    #expert_block {}
 }
-@media (max-width: 380px){
-    #expert_block {
-      
-       
-    }
+
+@media (max-width: 380px) {
+    #expert_block {}
 }
+
 @media (max-width: 962px) {
     #expert_block {
         left: calc(50% - 175px);
@@ -629,22 +634,27 @@
     font-size: 20px;
     font-weight: 700;
 }
-.img_expert-wrap{
+
+.img_expert-wrap {
     height: 200px !important;
 }
-.expert_name{
+
+.expert_name {
     color: #fff;
     background-color: rgb(167 107 212 / 90%);
     border-radius: 25px;
     padding: 5px 8px;
     font-weight: 700;
 }
-.animated_message{
+
+.animated_message {
     width: 100%;
 }
-.chat_header-exp-desc{
+
+.chat_header-exp-desc {
     font-weight: 700;
 }
+
 .burger>svg {
     width: 32px;
     height: 32px;
@@ -717,6 +727,7 @@
         bottom: 90px;
     }
 }
+
 @media (max-width: 380px) {
     .loading-wave {
         left: 20px;
@@ -828,7 +839,12 @@
     font-weight: 600;
     color: #fff
 }
-
+@media (max-width: 380px) {
+    .accordion-item-header-title{
+        font-size: 14px;
+        font-weight: 500;
+    }
+}
 .accordion .accordion-item .accordion-item-header .accordion-item-header-icon {
     -webkit-transition: var(--transition);
     -o-transition: var(--transition);
@@ -865,6 +881,12 @@
     padding: 10px;
     color: #fff;
     line-height: 1.5;
+}
+@media (max-width:380px) {
+    .accordion-item-description>p{
+        font-size: 14px;
+        font-weight: 500;
+    }
 }
 
 .page {

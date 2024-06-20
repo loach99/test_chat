@@ -32,7 +32,14 @@
 .form_textarea::placeholder{
     color: #ccc;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
+}
+@media (max-width: 380px){
+    .form_textarea::placeholder{
+        color: #ccc;
+        font-size: 14px;
+        font-weight: 500;
+    }
 }
 .scroll_bar::-webkit-resizer{
    display: none;
